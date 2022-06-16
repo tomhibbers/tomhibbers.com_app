@@ -53,15 +53,16 @@ export const Home = ({ navigation }) => {
           <Text style={styles.text} category="h1">
             Tom Hibbers
           </Text>
-          <Text style={styles.text} appearance="s1">
+          <Text style={[styles.text, {  color: theme['color-primary-400'] }]} category="h6">
             Full stack developer
           </Text>
-          <Text style={[styles.text, { marginVertical: 20 }]} appearance="hint">
+          <Text style={[styles.text, {  marginVertical: 20 }]} appearance="hint">
             I'm a software developer with a passion for full stack development. I am currently based
             in South-Africa.
           </Text>
           <Layout
             style={{
+              marginVertical: 40,
               justifyContent: 'center',
               alignItems: 'center',
               flexDirection: 'row',
@@ -78,7 +79,7 @@ export const Home = ({ navigation }) => {
               accessoryLeft={CVIcon}
               onPress={() => {
                 Linking.openURL(
-                  'https://tomhibbers.com/static/media/tomhibberscv.8b13736b6fa45341171a.pdf'
+                  'https://drive.google.com/uc?export=download&id=1jDUfZGdLRGIBQV29F9jzof2oeG3NUkiM'
                 );
               }}>
               <Text style={{ width: 200 }}>CV</Text>

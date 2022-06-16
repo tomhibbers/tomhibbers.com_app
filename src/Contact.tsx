@@ -51,7 +51,14 @@ export const Contact = () => {
               message.
             </Text>
           </Card>
-          <Button
+          
+        </SimpleAnimation><Layout
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+            }}><Button
             style={styles.button}
             accessoryLeft={EmailIcon}
             onPress={() => {
@@ -67,7 +74,7 @@ export const Contact = () => {
             }}>
             PHONE
           </Button>
-        </SimpleAnimation>
+            </Layout>
       </ScrollView>
     </SafeAreaView>
   );

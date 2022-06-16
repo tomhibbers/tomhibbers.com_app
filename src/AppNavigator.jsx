@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react';
-import { ImageBackground, StyleSheet, View } from 'react-native';
+import { ImageBackground, Linking, StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import {
@@ -24,24 +24,64 @@ import { Contact } from './Contact';
 
 const { Navigator, Screen } = createDrawerNavigator();
 
-const PersonIcon = (props) => <Icon {...props} name="person-outline" />;
-
-const BellIcon = (props) => <Icon {...props} name="bell-outline" />;
-
 const ForwardIcon = (props) => <Icon {...props} name="arrow-ios-forward" />;
+const LinkedInIcon = (props) => <Icon {...props} name="linkedin-outline" />;
+const GithubIcon = (props) => <Icon {...props} name="github-outline" />;
+const TwitterIcon = (props) => <Icon {...props} name="twitter-outline" />;
+const HomeIcon = (props) => <Icon {...props} name="twitter-outline" />;
+const AboutIcon = (props) => <Icon {...props} name="person-outline" />;
+const PortfolioIcon = (props) => <Icon {...props} name="briefcase-outline" />;
+const ContactIcon = (props) => <Icon {...props} name="email-outline" />;
 
 const renderHeader = () => {
   const themeContext = React.useContext(ThemeContext);
+  const theme = useTheme();
   return (
     <Layout insets="top" level="2">
       <Layout style={styles.header} level="2">
         <View style={styles.profileContainer}>
-          <Avatar size="giant" source={require('../assets/icon.png')} />
+          <Avatar size="large" source={require('../assets/favicon-2.png')} />
           <Text style={styles.profileName} category="h6">
             Tom Hibbers
           </Text>
         </View>
-        <Button style={{ marginVertical: 4 }} onPress={themeContext.toggleTheme}>
+      </Layout>
+      <Layout
+        style={{
+          backgroundColor: theme['background-basic-color-2'],
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <Button
+          style={styles.projectlink}
+          appearance="ghost"
+          accessoryLeft={GithubIcon}
+          onPress={() => {
+            Linking.openURL('https://github.com/tomhibbers');
+          }}
+        />
+        <Button
+          style={styles.projectlink}
+          appearance="ghost"
+          accessoryLeft={LinkedInIcon}
+          onPress={() => {
+            Linking.openURL('https://www.linkedin.com/in/tom-hibbers/');
+          }}
+        />
+        <Button
+          style={styles.projectlink}
+          appearance="ghost"
+          accessoryLeft={TwitterIcon}
+          onPress={() => {
+            Linking.openURL('https://twitter.com/tomhibbers');
+          }}
+        />
+      </Layout>
+      <Layout>
+        <Button
+          style={{ marginVertical: 20, marginHorizontal: 20 }}
+          onPress={themeContext.toggleTheme}>
           TOGGLE THEME
         </Button>
       </Layout>
@@ -51,19 +91,27 @@ const renderHeader = () => {
 
 const DrawerContent = ({ navigation, state }) => (
   <Drawer
+    contentOptions={{ activeTintColor: 'red' }}
     header={renderHeader}
     selectedIndex={new IndexPath(state.index)}
     onSelect={(index) => navigation.navigate(state.routeNames[index.row])}>
-    <DrawerItem title="Home" accessoryLeft={PersonIcon} accessoryRight={ForwardIcon} />
-    <DrawerItem title="About" accessoryLeft={BellIcon} accessoryRight={ForwardIcon} />
-    <DrawerItem title="Portfolio" accessoryLeft={BellIcon} accessoryRight={ForwardIcon} />
-    <DrawerItem title="Contact" accessoryLeft={BellIcon} accessoryRight={ForwardIcon} />
+    <DrawerItem title="Home" accessoryLeft={HomeIcon} accessoryRight={ForwardIcon} />
+    <DrawerItem
+      title="About"
+      activeTintColor="red"
+      accessoryLeft={AboutIcon}
+      accessoryRight={ForwardIcon}
+    />
+    <DrawerItem title="Portfolio" accessoryLeft={PortfolioIcon} accessoryRight={ForwardIcon} />
+    <DrawerItem title="Contact" accessoryLeft={ContactIcon} accessoryRight={ForwardIcon} />
   </Drawer>
 );
 export const DrawerNavigator = () => {
   const theme = useTheme();
   return (
-    <Navigator drawerContent={(props) => <DrawerContent {...props} />}>
+    <Navigator
+      drawerLabelStyle={{ activeTintColor: 'red' }}
+      drawerContent={(props) => <DrawerContent {...props} />}>
       <Screen
         name="Home"
         component={Home}
@@ -71,12 +119,15 @@ export const DrawerNavigator = () => {
           headerStyle: { backgroundColor: theme['background-basic-color-3'], borderBottomWidth: 0 },
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
+          activeTintColor: 'red',
         }}
       />
       <Screen
         name="About"
         component={About}
         options={{
+          drawerLabelStyle: { color: 'red' },
+          activeTintColor: { color: 'red' },
           headerStyle: { backgroundColor: theme['background-basic-color-3'], borderBottomWidth: 0 },
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
@@ -117,10 +168,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    marginTop: 20,
     height: 128,
-    paddingHorizontal: 16,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   footer: {
     flexDirection: 'row',
