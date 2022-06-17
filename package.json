@@ -8,6 +8,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "build:web": "expo build:web",
     "eject": "expo eject",
     "predeploy": "expo build:web",
     "deploy-hosting": "npm run predeploy && firebase deploy --only hosting"
