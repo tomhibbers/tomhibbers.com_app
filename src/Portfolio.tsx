@@ -1,6 +1,6 @@
 import React from 'react';
 // import { AnimationOnScroll } from 'react-animation-on-scroll';
-import { View, SafeAreaView, Image, Linking, ScrollView } from 'react-native';
+import { View, SafeAreaView, Image, Linking, ScrollView, Dimensions } from 'react-native';
 // import Animated, {
 //   FadeOutDown,
 //   FadeInUp,
@@ -17,15 +17,16 @@ const GithubIcon = (props: any) => <Icon {...props} name="github-outline" />;
 const ExternalLinkIcon = (props: any) => <Icon {...props} name="external-link-outline" />;
 export const Portfolio = () => {
   const theme = useTheme();
+  const wWidth = Dimensions.get('window').width;
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme['background-basic-color-1'] }]}>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView contentContainerStyle={{justifyContent:'center',alignItems:'center'}} style={styles.scrollView}>
         <SimpleAnimation
           delay={200}
           duration={2000}
           direction="right"
-          distance={500}
+          distance={wWidth}
           fade
           movementType="slide"
           useNativeDriver={true}
@@ -91,7 +92,7 @@ export const Portfolio = () => {
           delay={400}
           duration={2000}
           direction="right"
-          distance={500}
+          distance={wWidth}
           fade
           movementType="slide"
           useNativeDriver={true}
@@ -174,7 +175,9 @@ const { ids, styles } = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  scrollView: {},
+  scrollView: {
+    width: '100%',
+  },
   card: {
     margin: 20,
     maxWidth: 800,

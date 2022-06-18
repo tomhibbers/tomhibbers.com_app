@@ -1,6 +1,6 @@
 import React from 'react';
 // import { AnimationOnScroll } from 'react-animation-on-scroll';
-import { View, SafeAreaView, Image, ImageProps, Linking, ScrollView } from 'react-native';
+import { View, SafeAreaView, Image, ImageProps, Linking, ScrollView, Dimensions } from 'react-native';
 // import Animated, {
 //   FadeOutDown,
 //   FadeInUp,
@@ -30,15 +30,16 @@ const Header = () => {
 };
 export const Contact = () => {
   const theme = useTheme();
+  const wWidth = Dimensions.get('window').width;
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme['background-basic-color-1'] }]}>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView contentContainerStyle={{justifyContent:'center',alignItems:'center'}} style={styles.scrollView}>
         <SimpleAnimation
           delay={500}
           duration={2000}
           direction="left"
-          distance={500}
+          distance={wWidth}
           fade
           movementType="slide"
           useNativeDriver={true}
@@ -51,30 +52,51 @@ export const Contact = () => {
               message.
             </Text>
           </Card>
-          
-        </SimpleAnimation><Layout
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-            }}><Button
-            style={styles.button}
-            accessoryLeft={EmailIcon}
-            onPress={() => {
-              Linking.openURL('mailto:tomhibbers@gmail.com');
-            }}>
-            CONTACT
-          </Button>
-          <Button
-            style={styles.button}
-            accessoryLeft={PhoneIcon}
-            onPress={() => {
-              Linking.openURL('tel:+270822987183');
-            }}>
-            PHONE
-          </Button>
-            </Layout>
+        </SimpleAnimation>
+        <Layout
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+          }}>
+          <SimpleAnimation
+            delay={500}
+            duration={2000}
+            direction="left"
+            distance={wWidth}
+            fade
+            movementType="slide"
+            useNativeDriver={true}
+            animateOnUpdate={true}>
+            <Button
+              style={styles.button}
+              accessoryLeft={EmailIcon}
+              onPress={() => {
+                Linking.openURL('mailto:tomhibbers@gmail.com');
+              }}>
+              CONTACT
+            </Button>
+          </SimpleAnimation>
+          <SimpleAnimation
+            delay={700}
+            duration={2000}
+            direction="left"
+            distance={wWidth}
+            fade
+            movementType="slide"
+            useNativeDriver={true}
+            animateOnUpdate={true}>
+            <Button
+              style={styles.button}
+              accessoryLeft={PhoneIcon}
+              onPress={() => {
+                Linking.openURL('tel:+270822987183');
+              }}>
+              PHONE
+            </Button>
+          </SimpleAnimation>
+        </Layout>
       </ScrollView>
     </SafeAreaView>
   );
@@ -86,7 +108,9 @@ const { ids, styles } = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  scrollView: {},
+  scrollView: {
+    width: '100%',
+  },
   card: {
     margin: 20,
     maxWidth: 800,

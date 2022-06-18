@@ -9,6 +9,7 @@ import { AppNavigator } from './src/AppNavigator';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import AppLoading from 'expo-app-loading';
 import { Asset } from 'expo-asset';
+import { StatusBar } from 'react-native';
 
 const App = () => {
   const [theme, setTheme] = React.useState('dark');
@@ -39,14 +40,15 @@ const App = () => {
   }
   return (
     <>
-      <SafeAreaProvider>
-        <IconRegistry icons={EvaIconsPack} />
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
-          <ApplicationProvider {...eva} theme={eva[theme as 'light' | 'dark']}>
+      <IconRegistry icons={EvaIconsPack} />
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <ApplicationProvider {...eva} theme={eva[theme as 'light' | 'dark']}>
+          <SafeAreaProvider>
+            <StatusBar />
             <AppNavigator />
-          </ApplicationProvider>
-        </ThemeContext.Provider>
-      </SafeAreaProvider>
+          </SafeAreaProvider>
+        </ApplicationProvider>
+      </ThemeContext.Provider>
     </>
   );
 };

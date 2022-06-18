@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ImageProps, Linking, SafeAreaView, ScrollView, View } from 'react-native';
+import { Dimensions, Image, ImageProps, Linking, SafeAreaView, ScrollView, View } from 'react-native';
 import { Button, Card, Icon, Layout, Text, useTheme } from '@ui-kitten/components';
 import { ThemeContext } from '../theme-context';
 import StyleSheet from 'react-native-media-query';
@@ -13,15 +13,16 @@ const CVIcon = (props?: Partial<ImageProps>): React.ReactElement<ImageProps> => 
 );
 export const Home = ({ navigation }) => {
   const theme = useTheme();
+  const wWidth = Dimensions.get('window').width;
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme['background-basic-color-1'] }]}>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView contentContainerStyle={{justifyContent:'center',alignItems:'center'}} style={styles.scrollView}>
         <SimpleAnimation
           delay={500}
           duration={2000}
           direction="right"
-          distance={500}
+          distance={wWidth}
           fade
           movementType="slide"
           useNativeDriver={true}
@@ -45,7 +46,7 @@ export const Home = ({ navigation }) => {
           delay={500}
           duration={2000}
           direction="left"
-          distance={500}
+          distance={wWidth}
           fade
           movementType="slide"
           useNativeDriver={true}
@@ -96,7 +97,9 @@ const { ids, styles } = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  scrollView: {},
+  scrollView: {
+    width: '100%',
+  },
   text: {
     textAlign: 'center',
   },

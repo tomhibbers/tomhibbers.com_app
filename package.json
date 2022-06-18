@@ -10,8 +10,7 @@
     "web": "expo start --web",
     "build:web": "expo build:web",
     "eject": "expo eject",
-    "predeploy": "expo build:web",
-    "deploy-hosting": "npm run predeploy && firebase deploy --only hosting"
+    "preview": "eas build -p android --profile preview"
   },
   "resolutions": {
     "@types/react": "~17.0.21"

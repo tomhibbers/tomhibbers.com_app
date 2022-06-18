@@ -1,6 +1,6 @@
 import React from 'react';
 // import { AnimationOnScroll } from 'react-animation-on-scroll';
-import { View, SafeAreaView, Image, ScrollView } from 'react-native';
+import { View, SafeAreaView, Image, ScrollView, Dimensions } from 'react-native';
 // import Animated, {
 //   FadeOutDown,
 //   FadeInUp,
@@ -24,20 +24,22 @@ const Header = () => {
 };
 export const About = () => {
   const theme = useTheme();
+  const wWidth = Dimensions.get('window').width;
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: theme['background-basic-color-1'] }]}>
-      <ScrollView style={styles.scrollView}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: theme['background-basic-color-1'] }]}>
+      <ScrollView contentContainerStyle={{justifyContent:'center',alignItems:'center'}} style={styles.scrollView}>
         <SimpleAnimation
           delay={500}
           duration={2000}
           direction="right"
-          distance={500}
+          distance={wWidth}
           fade
           movementType="slide"
           useNativeDriver={true}
           animateOnUpdate={true}>
           <Card
-          style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
+            style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
             header={Header}>
             <Text style={styles.text}>
               My name is Tom Hibbers, I am a software engineer with a great passion for programming.
@@ -62,7 +64,7 @@ export const About = () => {
             delay={200}
             duration={2000}
             direction="left"
-            distance={500}
+            distance={wWidth}
             fade
             movementType="slide"
             useNativeDriver={true}
@@ -73,7 +75,7 @@ export const About = () => {
             delay={400}
             duration={2000}
             direction="left"
-            distance={500}
+            distance={wWidth}
             fade
             movementType="slide"
             useNativeDriver={true}
@@ -84,7 +86,7 @@ export const About = () => {
             delay={600}
             duration={2000}
             direction="left"
-            distance={500}
+            distance={wWidth}
             fade
             movementType="slide"
             useNativeDriver={true}
@@ -95,7 +97,7 @@ export const About = () => {
             delay={800}
             duration={2000}
             direction="left"
-            distance={500}
+            distance={wWidth}
             fade
             movementType="slide"
             useNativeDriver={true}
@@ -108,7 +110,7 @@ export const About = () => {
             delay={1000}
             duration={2000}
             direction="left"
-            distance={500}
+            distance={wWidth}
             fade
             movementType="slide"
             useNativeDriver={true}
@@ -119,7 +121,7 @@ export const About = () => {
             delay={1200}
             duration={2000}
             direction="left"
-            distance={500}
+            distance={wWidth}
             fade
             movementType="slide"
             useNativeDriver={true}
@@ -130,7 +132,7 @@ export const About = () => {
             delay={1400}
             duration={2000}
             direction="left"
-            distance={500}
+            distance={wWidth}
             fade
             movementType="slide"
             useNativeDriver={true}
@@ -149,7 +151,9 @@ const { ids, styles } = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  scrollView: {},
+  scrollView: {
+    width: '100%',
+  },
   card: {
     margin: 20,
     maxWidth: 800,

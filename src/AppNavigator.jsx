@@ -32,6 +32,7 @@ const HomeIcon = (props) => <Icon {...props} name="twitter-outline" />;
 const AboutIcon = (props) => <Icon {...props} name="person-outline" />;
 const PortfolioIcon = (props) => <Icon {...props} name="briefcase-outline" />;
 const ContactIcon = (props) => <Icon {...props} name="email-outline" />;
+const WebsiteIcon = (props) => <Icon {...props} name="globe-outline" />;
 
 const renderHeader = () => {
   const themeContext = React.useContext(ThemeContext);
@@ -40,7 +41,7 @@ const renderHeader = () => {
     <Layout insets="top" level="2">
       <Layout style={styles.header} level="2">
         <View style={styles.profileContainer}>
-          <Avatar size="large" source={require('../assets/favicon-2.png')} />
+          <Avatar size="large" source={require('../assets/favicon.png')} />
           <Text style={styles.profileName} category="h6">
             Tom Hibbers
           </Text>
@@ -53,6 +54,14 @@ const renderHeader = () => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
+        <Button
+          style={styles.projectlink}
+          appearance="ghost"
+          accessoryLeft={WebsiteIcon}
+          onPress={() => {
+            Linking.openURL('https://tomhibbers.com');
+          }}
+        />
         <Button
           style={styles.projectlink}
           appearance="ghost"
