@@ -10,7 +10,9 @@
     "web": "expo start --web",
     "build:web": "expo build:web",
     "eject": "expo eject",
-    "preview": "eas build -p android --profile preview"
+    "eas:build": "eas build -p android",
+    "eas:build:preview": "eas build -p android --profile preview",
+    "eas:submit:preview": "eas submit -p android --profile preview"
   },
   "resolutions": {
     "@types/react": "~17.0.21"

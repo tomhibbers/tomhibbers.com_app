@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import { ImageBackground, Linking, StyleSheet, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import {
   Drawer,
@@ -21,6 +21,8 @@ import { About } from './About';
 import { ThemeContext } from '../theme-context';
 import { Portfolio } from './Portfolio';
 import { Contact } from './Contact';
+import { Privacy } from './Privacy';
+import { Terms } from './Terms';
 
 const { Navigator, Screen } = createDrawerNavigator();
 
@@ -33,6 +35,8 @@ const AboutIcon = (props) => <Icon {...props} name="person-outline" />;
 const PortfolioIcon = (props) => <Icon {...props} name="briefcase-outline" />;
 const ContactIcon = (props) => <Icon {...props} name="email-outline" />;
 const WebsiteIcon = (props) => <Icon {...props} name="globe-outline" />;
+const PrivacyIcon = (props) => <Icon {...props} name="shield-outline" />;
+const TermsIcon = (props) => <Icon {...props} name="info-outline" />;
 
 const renderHeader = () => {
   const themeContext = React.useContext(ThemeContext);
@@ -97,11 +101,41 @@ const renderHeader = () => {
     </Layout>
   );
 };
+const renderFooter = () => {
+  const themeContext = React.useContext(ThemeContext);
+  const navigation = useNavigation();
+  const theme = useTheme();
+  return (
+    <Layout insets="top" level="2">
+      <Layout
+        style={{
+          backgroundColor: theme['background-basic-color-2'],
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <Button
+          style={styles.projectlink}
+          appearance="ghost"
+          accessoryLeft={PrivacyIcon}
+          onPress={() => navigation.navigate('Privacy')}
+        />
+        <Button
+          style={styles.projectlink}
+          appearance="ghost"
+          accessoryLeft={TermsIcon}
+          onPress={() => navigation.navigate('Terms')}
+        />
+      </Layout>
+    </Layout>
+  );
+};
 
 const DrawerContent = ({ navigation, state }) => (
   <Drawer
     contentOptions={{ activeTintColor: 'red' }}
     header={renderHeader}
+    footer={renderFooter}
     selectedIndex={new IndexPath(state.index)}
     onSelect={(index) => navigation.navigate(state.routeNames[index.row])}>
     <DrawerItem title="Home" accessoryLeft={HomeIcon} accessoryRight={ForwardIcon} />
@@ -160,13 +194,43 @@ export const DrawerNavigator = () => {
           headerTitleAlign: 'center',
         }}
       />
+      <Screen
+        name="Privacy"
+        component={Privacy}
+        options={{
+          headerStyle: { backgroundColor: theme['background-basic-color-3'], borderBottomWidth: 0 },
+          headerTintColor: theme['text-basic-color'],
+          headerTitleAlign: 'center',
+        }}
+      />
+      <Screen
+        name="Terms"
+        component={Terms}
+        options={{
+          headerStyle: { backgroundColor: theme['background-basic-color-3'], borderBottomWidth: 0 },
+          headerTintColor: theme['text-basic-color'],
+          headerTitleAlign: 'center',
+        }}
+      />
     </Navigator>
   );
 };
-
+const linking = {
+  // prefixes: ['https://mychat.com', 'mychat://'],
+  config: {
+    screens: {
+      Home: '',
+      About: '/about',
+      Portfolio: '/portfolio',
+      Contact: '/contact',
+      Privacy: '/privacy',
+      Terms: '/terms',
+    }
+  },
+};
 export const AppNavigator = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <DrawerNavigator />
     </NavigationContainer>
   );

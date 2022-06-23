@@ -9,12 +9,26 @@
     },
     "preview": {
       "android": {
+        "autoIncrement": "versionCode"
+      }
+    },
+    "preview2": {
+      "android": {
         "buildType": "apk"
       }
     },
-    "production": {}
+    "production": {
+      "android": {
+        "autoIncrement": "versionCode"
+      }
+    }
   },
   "submit": {
-    "production": {}
+    "preview": {
+      "android": {
+        "track": "internal",
+        "releaseStatus": "draft"
+      }
+    }
   }
 }

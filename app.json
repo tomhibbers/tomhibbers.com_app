@@ -15,19 +15,21 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["assets/*"],
+    "assetBundlePatterns": [
+      "assets/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "requireFullScreen": true
     },
     "android": {
       "package": "com.tomhibbers.app",
-      "versionCode": 2,
+      "versionCode": 4,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "permissions" : []
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"

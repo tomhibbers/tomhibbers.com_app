@@ -9,7 +9,7 @@ import { styled, StyledComponentProps } from '@ui-kitten/components';
 export type StatusBarProps = RNStatusBarProps & StyledComponentProps;
 
 @styled('StatusBar')
-export class CustomStatusBar extends React.Component<StatusBarProps> {
+export class StatusBar extends React.Component<StatusBarProps> {
   public render(): React.ReactElement<ViewProps> {
     const { eva, ...statusBarProps } = this.props;
 

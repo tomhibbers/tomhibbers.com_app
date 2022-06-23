@@ -9,13 +9,18 @@ import { AppNavigator } from './src/AppNavigator';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import AppLoading from 'expo-app-loading';
 import { Asset } from 'expo-asset';
-import { StatusBar } from 'react-native';
+import { Platform, StatusBar } from 'react-native';
 
 const App = () => {
   const [theme, setTheme] = React.useState('dark');
   const [isReady, setisReady] = React.useState(false);
   const themeContext = React.useContext(ThemeContext);
+  StatusBar.setBarStyle('dark-content');
 
+  if (Platform.OS === 'android') {
+    StatusBar.setTranslucent(true);
+    StatusBar.setBackgroundColor('transparent');
+  }
   const toggleTheme = () => {
     const nextTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(nextTheme);
@@ -44,7 +49,7 @@ const App = () => {
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
         <ApplicationProvider {...eva} theme={eva[theme as 'light' | 'dark']}>
           <SafeAreaProvider>
-            <StatusBar />
+            {/* <StatusBar style="dark" backgroundColor="transparent" translucent /> */}
             <AppNavigator />
           </SafeAreaProvider>
         </ApplicationProvider>
