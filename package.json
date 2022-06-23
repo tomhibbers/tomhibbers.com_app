@@ -1,6 +1,6 @@
 {
   "name": "tomhibbers-app",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "./index.js",
   "license": "MIT",
   "scripts": {
@@ -10,9 +10,9 @@
     "web": "expo start --web",
     "build:web": "expo build:web",
     "eject": "expo eject",
-    "eas:build": "eas build -p android",
-    "eas:build:preview": "eas build -p android --profile preview",
-    "eas:submit:preview": "eas submit -p android --profile preview"
+    "build:aap": "eas build -p android --profile aap",
+    "build:apk": "eas build -p android --profile apk",
+    "submit:aap": "eas submit -p android --profile aap"
   },
   "resolutions": {
     "@types/react": "~17.0.21"

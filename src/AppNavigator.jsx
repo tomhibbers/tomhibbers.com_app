@@ -15,7 +15,7 @@ import {
   Toggle,
   Avatar,
 } from '@ui-kitten/components';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Home } from './Home';
 import { About } from './About';
 import { ThemeContext } from '../theme-context';
@@ -30,7 +30,7 @@ const ForwardIcon = (props) => <Icon {...props} name="arrow-ios-forward" />;
 const LinkedInIcon = (props) => <Icon {...props} name="linkedin-outline" />;
 const GithubIcon = (props) => <Icon {...props} name="github-outline" />;
 const TwitterIcon = (props) => <Icon {...props} name="twitter-outline" />;
-const HomeIcon = (props) => <Icon {...props} name="twitter-outline" />;
+const HomeIcon = (props) => <Icon {...props} name="home-outline" />;
 const AboutIcon = (props) => <Icon {...props} name="person-outline" />;
 const PortfolioIcon = (props) => <Icon {...props} name="briefcase-outline" />;
 const ContactIcon = (props) => <Icon {...props} name="email-outline" />;
@@ -41,64 +41,77 @@ const TermsIcon = (props) => <Icon {...props} name="info-outline" />;
 const renderHeader = () => {
   const themeContext = React.useContext(ThemeContext);
   const theme = useTheme();
+
+  const renderThemeIcon = (props) => (
+    <Icon {...props} name={themeContext.isDark ? 'sun' : 'moon'} />
+  );
+
   return (
-    <Layout insets="top" level="2">
-      <Layout style={styles.header} level="2">
-        <View style={styles.profileContainer}>
-          <Avatar size="large" source={require('../assets/favicon.png')} />
-          <Text style={styles.profileName} category="h6">
-            Tom Hibbers
-          </Text>
-        </View>
-      </Layout>
-      <Layout
-        style={{
-          backgroundColor: theme['background-basic-color-2'],
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Button
-          style={styles.projectlink}
-          appearance="ghost"
-          accessoryLeft={WebsiteIcon}
-          onPress={() => {
-            Linking.openURL('https://tomhibbers.com');
-          }}
-        />
-        <Button
-          style={styles.projectlink}
-          appearance="ghost"
-          accessoryLeft={GithubIcon}
-          onPress={() => {
-            Linking.openURL('https://github.com/tomhibbers');
-          }}
-        />
-        <Button
-          style={styles.projectlink}
-          appearance="ghost"
-          accessoryLeft={LinkedInIcon}
-          onPress={() => {
-            Linking.openURL('https://www.linkedin.com/in/tom-hibbers/');
-          }}
-        />
-        <Button
-          style={styles.projectlink}
-          appearance="ghost"
-          accessoryLeft={TwitterIcon}
-          onPress={() => {
-            Linking.openURL('https://twitter.com/tomhibbers');
-          }}
-        />
-      </Layout>
-      <Layout>
-        <Button
+    <SafeAreaView style={{backgroundColor: theme['background-basic-color-2']}}>
+      <Layout insets="top" level="2">
+        <Layout style={styles.header} level="2">
+          <View style={styles.profileContainer}>
+            <Avatar size="large" source={require('../assets/favicon.png')} />
+            <Text style={styles.profileName} category="h6">
+              Tom Hibbers
+            </Text>
+            <Button
+              style={styles.projectlink}
+              appearance="ghost"
+              accessoryLeft={renderThemeIcon}
+              onPress={themeContext.toggleTheme}
+            />
+          </View>
+        </Layout>
+        <Layout
+          style={{
+            backgroundColor: theme['background-basic-color-2'],
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Button
+            style={styles.projectlink}
+            appearance="ghost"
+            accessoryLeft={WebsiteIcon}
+            onPress={() => {
+              Linking.openURL('https://tomhibbers.com');
+            }}
+          />
+          <Button
+            style={styles.projectlink}
+            appearance="ghost"
+            accessoryLeft={GithubIcon}
+            onPress={() => {
+              Linking.openURL('https://github.com/tomhibbers');
+            }}
+          />
+          <Button
+            style={styles.projectlink}
+            appearance="ghost"
+            accessoryLeft={LinkedInIcon}
+            onPress={() => {
+              Linking.openURL('https://www.linkedin.com/in/tom-hibbers/');
+            }}
+          />
+          <Button
+            style={styles.projectlink}
+            appearance="ghost"
+            accessoryLeft={TwitterIcon}
+            onPress={() => {
+              Linking.openURL('https://twitter.com/tomhibbers');
+            }}
+          />
+        </Layout>
+        <Layout>
+          {/* <Button
           style={{ marginVertical: 20, marginHorizontal: 20 }}
           onPress={themeContext.toggleTheme}>
           TOGGLE THEME
-        </Button>
+        </Button> */}
+        </Layout>
       </Layout>
-    </Layout>
+    </SafeAreaView>
   );
 };
 const renderFooter = () => {
@@ -225,7 +238,7 @@ const linking = {
       Contact: '/contact',
       Privacy: '/privacy',
       Terms: '/terms',
-    }
+    },
   },
 };
 export const AppNavigator = () => {
@@ -241,7 +254,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    height: 128,
+    marginVertical: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },

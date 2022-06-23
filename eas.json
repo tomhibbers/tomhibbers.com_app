@@ -7,12 +7,12 @@
       "developmentClient": true,
       "distribution": "internal"
     },
-    "preview": {
+    "aap": {
       "android": {
         "autoIncrement": "versionCode"
       }
     },
-    "preview2": {
+    "apk": {
       "android": {
         "buildType": "apk"
       }
@@ -24,9 +24,10 @@
     }
   },
   "submit": {
-    "preview": {
+    "aap": {
       "android": {
-        "track": "internal",
+        "serviceAccountKeyPath": ".eas-publish/android.json",
+        "track": "alpha",
         "releaseStatus": "draft"
       }
     }
