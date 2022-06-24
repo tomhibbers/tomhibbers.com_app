@@ -54,7 +54,7 @@ export const Home = ({ navigation }) => {
           <Text style={styles.text} category="h1">
             Tom Hibbers
           </Text>
-          <Text style={[styles.text, {  color: theme['color-primary-400'] }]} category="h6">
+          <Text style={[styles.text, {  color: theme['color-primary-500'] }]} category="h6">
             Full stack developer
           </Text>
           <Text style={[styles.text, {  marginVertical: 20 }]} appearance="hint">

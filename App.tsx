@@ -13,7 +13,7 @@ import { Platform, StatusBar } from 'react-native';
 
 const LightIcon = (props) => <Icon {...props} name="sun-outline" />;
 const DarkIcon = (props) => <Icon {...props} name="moon-outline" />;
-
+const themeC = require('./app-theme.json');
 const App = () => {
   const [theme, setTheme] = React.useState('dark');
   const [isReady, setisReady] = React.useState(false);
@@ -50,9 +50,8 @@ const App = () => {
     <>
       <IconRegistry icons={EvaIconsPack} />
       <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>
-        <ApplicationProvider {...eva} theme={eva[theme as 'light' | 'dark']}>
+        <ApplicationProvider {...eva} theme={{ ...eva[theme as 'light' | 'dark'], ...themeC }}>
           <SafeAreaProvider>
-            {/* <StatusBar style="dark" backgroundColor="transparent" translucent /> */}
             <AppNavigator />
           </SafeAreaProvider>
         </ApplicationProvider>
