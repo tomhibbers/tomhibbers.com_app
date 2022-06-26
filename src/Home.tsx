@@ -26,8 +26,7 @@ export const Home = ({ navigation }) => {
   const theme = useTheme();
   const wWidth = Dimensions.get('window').width;
   return (
-    <SafeAreaView
-      style={[styles.container, { backgroundColor: theme['background-basic-color-1'] }]}>
+    <SafeAreaView style={{ flexGrow: 1, backgroundColor: theme['background-basic-color-1'] }}>
       <AnimatedLinearGradient
         customColors={[
           theme['background-basic-color-1'],
@@ -35,137 +34,132 @@ export const Home = ({ navigation }) => {
           theme['color-info-500'],
           theme['background-basic-color-4'],
         ]}
-        speed={4000}>
-        <ScrollView
-          contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}
-          style={styles.scrollView}>
-          <View
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-            }}>
-            <SimpleAnimation
-              style={styles.heroLeftContainer}
-              dataSet={{ media: ids.heroLeftContainer }}
-              delay={500}
-              duration={2000}
-              direction="right"
-              distance={wWidth}
-              fade
-              movementType="slide"
-              useNativeDriver={true}
-              animateOnUpdate={true}>
-              <Layout style={{ backgroundColor: 'transparent' }}>
-                <Image
-                  source={require('../assets/profilepic.jpg')}
-                  style={{
-                    marginVertical: 40,
-                    borderColor: theme['color-primary-500'],
-                    borderWidth: 3,
-                    width: 250,
-                    height: 250,
-                    resizeMode: 'cover',
-                    borderRadius: 400 / 2,
-                  }}
-                />
-              </Layout>
-            </SimpleAnimation>
-            <SimpleAnimation
-              style={styles.heroRightContainer}
-              dataSet={{ media: ids.heroRightContainer }}
-              delay={500}
-              duration={2000}
-              direction="left"
-              distance={wWidth}
-              fade
-              movementType="slide"
-              useNativeDriver={true}
-              animateOnUpdate={true}>
-              <Layout style={{ backgroundColor: 'transparent' }}>
-                <Text
-                  style={[
-                    styles.text,
-                    {
-                      color: theme['color-success-500'],
-                      textShadowColor: 'rgba(0, 0, 0, 0.75)',
-                      textShadowOffset: { width: -1, height: 1 },
-                      textShadowRadius: 3,
-                    },
-                  ]}
-                  category="h1">
-                  Tom Hibbers
-                </Text>
-                <Text
-                  style={[
-                    styles.text,
-                    {
-                      color: theme['color-success-400'],
-                      textShadowColor: 'rgba(0, 0, 0, 0.75)',
-                      textShadowOffset: { width: -1, height: 1 },
-                      textShadowRadius: 3,
-                    },
-                  ]}
-                  category="h6">
-                  Full stack developer
-                </Text>
-                <Text
-                  style={[
-                    styles.text,
-                    {
-                      marginVertical: 20,
-                      textShadowColor: 'rgba(0, 0, 0, 0.75)',
-                      textShadowOffset: { width: -1, height: 1 },
-                      textShadowRadius: 3,
-                    },
-                  ]}>
-                  I'm a software developer with a passion for full stack development. I am currently
-                  based in South-Africa.
-                </Text>
-                <Layout
-                  style={{
-                    backgroundColor: 'transparent',
-                    marginVertical: 40,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
+        speed={4000}></AnimatedLinearGradient>
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}>
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+          }}>
+          <SimpleAnimation
+            style={styles.heroLeftContainer}
+            dataSet={{ media: ids.heroLeftContainer }}
+            delay={500}
+            duration={2000}
+            direction="right"
+            distance={wWidth}
+            fade
+            movementType="slide"
+            useNativeDriver={true}
+            animateOnUpdate={true}>
+            <Layout style={{ backgroundColor: 'transparent' }}>
+              <Image
+                source={require('../assets/profilepic.jpg')}
+                style={{
+                  marginVertical: 40,
+                  borderColor: theme['color-primary-500'],
+                  borderWidth: 3,
+                  width: 250,
+                  height: 250,
+                  resizeMode: 'cover',
+                  borderRadius: 400 / 2,
+                }}
+              />
+            </Layout>
+          </SimpleAnimation>
+          <SimpleAnimation
+            style={styles.heroRightContainer}
+            dataSet={{ media: ids.heroRightContainer }}
+            delay={500}
+            duration={2000}
+            direction="left"
+            distance={wWidth}
+            fade
+            movementType="slide"
+            useNativeDriver={true}
+            animateOnUpdate={true}>
+            <Layout style={{ backgroundColor: 'transparent' }}>
+              <Text
+                style={[
+                  styles.text,
+                  {
+                    color: theme['color-success-500'],
+                    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+                    textShadowOffset: { width: -1, height: 1 },
+                    textShadowRadius: 3,
+                  },
+                ]}
+                category="h1">
+                Tom Hibbers
+              </Text>
+              <Text
+                style={[
+                  styles.text,
+                  {
+                    color: theme['color-success-400'],
+                    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+                    textShadowOffset: { width: -1, height: 1 },
+                    textShadowRadius: 3,
+                  },
+                ]}
+                category="h6">
+                Full stack developer
+              </Text>
+              <Text
+                style={[
+                  styles.text,
+                  {
+                    marginVertical: 20,
+                    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+                    textShadowOffset: { width: -1, height: 1 },
+                    textShadowRadius: 3,
+                  },
+                ]}>
+                I'm a software developer with a passion for full stack development. I am currently
+                based in South-Africa.
+              </Text>
+              <Layout
+                style={{
+                  backgroundColor: 'transparent',
+                  marginVertical: 40,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                }}>
+                <Button
+                  style={styles.button}
+                  accessoryLeft={EmailIcon}
+                  onPress={() => navigation.navigate('Contact')}>
+                  CONTACT
+                </Button>
+                <Button
+                  style={styles.button}
+                  accessoryLeft={CVIcon}
+                  onPress={() => {
+                    Linking.openURL(
+                      'https://drive.google.com/uc?export=download&id=1jDUfZGdLRGIBQV29F9jzof2oeG3NUkiM'
+                    );
                   }}>
-                  <Button
-                    style={styles.button}
-                    accessoryLeft={EmailIcon}
-                    onPress={() => navigation.navigate('Contact')}>
-                    CONTACT
-                  </Button>
-                  <Button
-                    style={styles.button}
-                    accessoryLeft={CVIcon}
-                    onPress={() => {
-                      Linking.openURL(
-                        'https://drive.google.com/uc?export=download&id=1jDUfZGdLRGIBQV29F9jzof2oeG3NUkiM'
-                      );
-                    }}>
-                    <Text style={{ width: 200 }}>CV</Text>
-                  </Button>
-                </Layout>
+                  <Text style={{ width: 200 }}>CV</Text>
+                </Button>
               </Layout>
-            </SimpleAnimation>
-          </View>
-        </ScrollView>
-      </AnimatedLinearGradient>
+            </Layout>
+          </SimpleAnimation>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
 const { ids, styles } = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  scrollView: {
-    width: '100%',
-  },
   text: {
     textAlign: 'center',
   },

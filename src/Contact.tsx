@@ -33,8 +33,7 @@ export const Contact = () => {
   const theme = useTheme();
   const wWidth = Dimensions.get('window').width;
   return (
-    <SafeAreaView
-      style={[styles.container, { backgroundColor: theme['background-basic-color-1'] }]}>
+    <SafeAreaView style={{ flexGrow: 1, backgroundColor: theme['background-basic-color-1'] }}>
       <AnimatedLinearGradient
         customColors={[
           theme['background-basic-color-1'],
@@ -42,11 +41,47 @@ export const Contact = () => {
           theme['color-info-500'],
           theme['background-basic-color-4'],
         ]}
-        speed={4000}>
-        <ScrollView
-          contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}
-          style={styles.scrollView}>
+        speed={4000}></AnimatedLinearGradient>
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}>
+        <SimpleAnimation
+          delay={500}
+          duration={2000}
+          direction="left"
+          distance={wWidth}
+          fade
+          movementType="slide"
+          useNativeDriver={true}
+          animateOnUpdate={true}>
+          <Card
+            style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
+            header={Header}>
+            <Text style={styles.text}>
+              If you've seen my potential or want to talk to me, don't hesitate to send me a
+              message.
+            </Text>
+          </Card>
+        </SimpleAnimation>
+        <Layout
+          style={{
+            backgroundColor: 'transparent',
+            marginVertical: 40,
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            maxWidth: 800,
+            width: '100%',
+          }}>
           <SimpleAnimation
+            style={{
+              width: '40%',
+            }}
             delay={500}
             duration={2000}
             direction="left"
@@ -55,84 +90,43 @@ export const Contact = () => {
             movementType="slide"
             useNativeDriver={true}
             animateOnUpdate={true}>
-            <Card
-              style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
-              header={Header}>
-              <Text style={styles.text}>
-                If you've seen my potential or want to talk to me, don't hesitate to send me a
-                message.
-              </Text>
-            </Card>
+            <Button
+              style={styles.button}
+              accessoryLeft={EmailIcon}
+              onPress={() => {
+                Linking.openURL('mailto:tomhibbers@gmail.com');
+              }}>
+              CONTACT
+            </Button>
           </SimpleAnimation>
-          <Layout
+          <SimpleAnimation
             style={{
-              backgroundColor: 'transparent',
-              marginVertical: 40,
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              maxWidth: 800,
-              width: '100%',
-            }}>
-            <SimpleAnimation
-              style={{
-                width: '40%',
-              }}
-              delay={500}
-              duration={2000}
-              direction="left"
-              distance={wWidth}
-              fade
-              movementType="slide"
-              useNativeDriver={true}
-              animateOnUpdate={true}>
-              <Button
-                style={styles.button}
-                accessoryLeft={EmailIcon}
-                onPress={() => {
-                  Linking.openURL('mailto:tomhibbers@gmail.com');
-                }}>
-                CONTACT
-              </Button>
-            </SimpleAnimation>
-            <SimpleAnimation
-              style={{
-                width: '40%',
-              }}
-              delay={700}
-              duration={2000}
-              direction="left"
-              distance={wWidth}
-              fade
-              movementType="slide"
-              useNativeDriver={true}
-              animateOnUpdate={true}>
-              <Button
-                style={styles.button}
-                accessoryLeft={PhoneIcon}
-                onPress={() => {
-                  Linking.openURL('tel:+270822987183');
-                }}>
-                PHONE
-              </Button>
-            </SimpleAnimation>
-          </Layout>
-        </ScrollView>
-      </AnimatedLinearGradient>
+              width: '40%',
+            }}
+            delay={700}
+            duration={2000}
+            direction="left"
+            distance={wWidth}
+            fade
+            movementType="slide"
+            useNativeDriver={true}
+            animateOnUpdate={true}>
+            <Button
+              style={styles.button}
+              accessoryLeft={PhoneIcon}
+              onPress={() => {
+                Linking.openURL('tel:+270822987183');
+              }}>
+              PHONE
+            </Button>
+          </SimpleAnimation>
+        </Layout>
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 const { ids, styles } = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  scrollView: {
-    width: '100%',
-  },
   card: {
     margin: 20,
     maxWidth: 800,

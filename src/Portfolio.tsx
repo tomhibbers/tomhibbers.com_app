@@ -13,10 +13,7 @@ export const Portfolio = () => {
   const theme = useTheme();
   const wWidth = Dimensions.get('window').width;
   return (
-    <SafeAreaView
-      style={{
-        flexGrow: 1,
-      }}>
+    <SafeAreaView style={{ flexGrow: 1, backgroundColor: theme['background-basic-color-1'] }}>
       <AnimatedLinearGradient
         customColors={[
           theme['background-basic-color-1'],
