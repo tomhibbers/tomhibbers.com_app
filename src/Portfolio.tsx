@@ -14,7 +14,9 @@ export const Portfolio = () => {
   const wWidth = Dimensions.get('window').width;
   return (
     <SafeAreaView
-      style={[styles.container, { backgroundColor: theme['background-basic-color-1'] }]}>
+      style={{
+        flexGrow: 1,
+      }}>
       <AnimatedLinearGradient
         customColors={[
           theme['background-basic-color-1'],
@@ -22,277 +24,277 @@ export const Portfolio = () => {
           theme['color-info-500'],
           theme['background-basic-color-4'],
         ]}
-        speed={4000}>
-        <ScrollView
-          contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}
-          style={styles.scrollView}>
-          <SimpleAnimation
-            delay={200}
-            duration={2000}
-            direction="right"
-            distance={wWidth}
-            fade
-            movementType="slide"
-            useNativeDriver={true}
-            animateOnUpdate={true}>
-            <Card
-              style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
-              header={() => {
-                const theme = useTheme();
-                return (
-                  <Layout>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        backgroundColor: theme['background-basic-color-4'],
-                      }}>
-                      <Button appearance="ghost" accessoryLeft={ProjectIcon} />
-                      <Layout
-                        style={{
-                          flexDirection: 'row',
-                          backgroundColor: theme['background-basic-color-4'],
-                        }}>
-                        <Button
-                          style={styles.projectlink}
-                          onPress={() => {
-                            Linking.openURL('https://github.com/tomhibbers/tomhibbers.com_v1');
-                          }}
-                          appearance="ghost"
-                          accessoryLeft={GithubIcon}
-                        />
-                      </Layout>
-                    </View>
+        speed={4000}
+      />
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}>
+        <SimpleAnimation
+          style={{ padding: 10, textAlign: 'center' }}
+          delay={200}
+          duration={2000}
+          direction="right"
+          distance={wWidth}
+          fade
+          movementType="slide"
+          useNativeDriver={true}
+          animateOnUpdate={true}>
+          <Card
+            style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
+            header={() => {
+              const theme = useTheme();
+              return (
+                <Layout>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      backgroundColor: theme['background-basic-color-4'],
+                    }}>
+                    <Button appearance="ghost" accessoryLeft={ProjectIcon} />
                     <Layout
                       style={{
-                        justifyContent: 'center',
-                        alignItems: 'center',
+                        flexDirection: 'row',
                         backgroundColor: theme['background-basic-color-4'],
                       }}>
-                      <Text
-                        category="h6"
-                        style={{
-                          paddingVertical: 10,
-                          paddingHorizontal: 10,
-                        }}>
-                        Tom Hibbers Website V1
-                      </Text>
+                      <Button
+                        style={styles.projectlink}
+                        onPress={() => {
+                          Linking.openURL('https://github.com/tomhibbers/tomhibbers.com_v1');
+                        }}
+                        appearance="ghost"
+                        accessoryLeft={GithubIcon}
+                      />
                     </Layout>
-                  </Layout>
-                );
-              }}
-              footer={() => {
-                const theme = useTheme();
-                return (
-                  <View
+                  </View>
+                  <Layout
                     style={{
                       justifyContent: 'center',
                       alignItems: 'center',
-                      flexDirection: 'row',
-                      flexWrap: 'wrap',
                       backgroundColor: theme['background-basic-color-4'],
                     }}>
-                    <Text style={styles.tech}>Angular</Text>
-                    <Text style={styles.tech}>Typescript</Text>
-                    <Text style={styles.tech}>Scully</Text>
-                  </View>
-                );
-              }}>
-              <Text style={styles.text}>
-                My first personal website. Written in Angular and Scully. My first foray into
-                Jamstack. Lots to learn and lots of fun.
-              </Text>
-            </Card>
-          </SimpleAnimation>
-          <SimpleAnimation
-            delay={400}
-            duration={2000}
-            direction="right"
-            distance={wWidth}
-            fade
-            movementType="slide"
-            useNativeDriver={true}
-            animateOnUpdate={true}>
-            <Card
-              style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
-              header={() => {
-                const theme = useTheme();
-                return (
-                  <Layout>
-                    <View
+                    <Text
+                      category="h6"
                       style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        backgroundColor: theme['background-basic-color-4'],
+                        paddingVertical: 10,
+                        paddingHorizontal: 10,
                       }}>
-                      <Button appearance="ghost" accessoryLeft={ProjectIcon} />
-                      <Layout
-                        style={{
-                          flexDirection: 'row',
-                          backgroundColor: theme['background-basic-color-4'],
-                        }}>
-                        <Button
-                          style={styles.projectlink}
-                          appearance="ghost"
-                          accessoryLeft={GithubIcon}
-                          onPress={() => {
-                            Linking.openURL('https://github.com/tomhibbers/tomhibbers.com_v2');
-                          }}
-                        />
-                        <Button
-                          style={styles.projectlink}
-                          appearance="ghost"
-                          accessoryLeft={ExternalLinkIcon}
-                          onPress={() => {
-                            Linking.openURL('https://tomhibbers.com');
-                          }}
-                        />
-                      </Layout>
-                    </View>
+                      Tom Hibbers Website V1
+                    </Text>
+                  </Layout>
+                </Layout>
+              );
+            }}
+            footer={() => {
+              const theme = useTheme();
+              return (
+                <View
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    backgroundColor: theme['background-basic-color-4'],
+                  }}>
+                  <Text style={styles.tech}>Angular</Text>
+                  <Text style={styles.tech}>Typescript</Text>
+                  <Text style={styles.tech}>Scully</Text>
+                </View>
+              );
+            }}>
+            <Text style={styles.text}>
+              My first personal website. Written in Angular and Scully. My first foray into
+              Jamstack. Lots to learn and lots of fun.
+            </Text>
+          </Card>
+        </SimpleAnimation>
+        <SimpleAnimation
+          style={{ padding: 10 }}
+          delay={400}
+          duration={2000}
+          direction="right"
+          distance={wWidth}
+          fade
+          movementType="slide"
+          useNativeDriver={true}
+          animateOnUpdate={true}>
+          <Card
+            style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
+            header={() => {
+              const theme = useTheme();
+              return (
+                <Layout>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      backgroundColor: theme['background-basic-color-4'],
+                    }}>
+                    <Button appearance="ghost" accessoryLeft={ProjectIcon} />
                     <Layout
                       style={{
-                        justifyContent: 'center',
-                        alignItems: 'center',
+                        flexDirection: 'row',
                         backgroundColor: theme['background-basic-color-4'],
                       }}>
-                      <Text
-                        category="h6"
-                        style={{
-                          paddingVertical: 10,
-                          paddingHorizontal: 10,
-                        }}>
-                        Tom Hibbers Website V2
-                      </Text>
+                      <Button
+                        style={styles.projectlink}
+                        appearance="ghost"
+                        accessoryLeft={GithubIcon}
+                        onPress={() => {
+                          Linking.openURL('https://github.com/tomhibbers/tomhibbers.com_v2');
+                        }}
+                      />
+                      <Button
+                        style={styles.projectlink}
+                        appearance="ghost"
+                        accessoryLeft={ExternalLinkIcon}
+                        onPress={() => {
+                          Linking.openURL('https://tomhibbers.com');
+                        }}
+                      />
                     </Layout>
-                  </Layout>
-                );
-              }}
-              footer={() => {
-                const theme = useTheme();
-                return (
-                  <View
+                  </View>
+                  <Layout
                     style={{
                       justifyContent: 'center',
                       alignItems: 'center',
-                      flexDirection: 'row',
-                      flexWrap: 'wrap',
                       backgroundColor: theme['background-basic-color-4'],
                     }}>
-                    <Text style={styles.tech}>React</Text>
-                    <Text style={styles.tech}>Typescript</Text>
-                    <Text style={styles.tech}>Styled Components</Text>
-                  </View>
-                );
-              }}>
-              <Text style={styles.text}>
-                My personal website, rewritten in ReactJS. I'm moving away from Jamstack for this
-                project as adding embedded widgets from social media feeds doesn't work with Scully.
-              </Text>
-            </Card>
-          </SimpleAnimation>
-          <SimpleAnimation
-            delay={600}
-            duration={2000}
-            direction="right"
-            distance={wWidth}
-            fade
-            movementType="slide"
-            useNativeDriver={true}
-            animateOnUpdate={true}>
-            <Card
-              style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
-              header={() => {
-                const theme = useTheme();
-                return (
-                  <Layout>
-                    <View
+                    <Text
+                      category="h6"
                       style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        backgroundColor: theme['background-basic-color-4'],
+                        paddingVertical: 10,
+                        paddingHorizontal: 10,
                       }}>
-                      <Button appearance="ghost" accessoryLeft={ProjectIcon} />
-                      <Layout
-                        style={{
-                          flexDirection: 'row',
-                          backgroundColor: theme['background-basic-color-4'],
-                        }}>
-                        <Button
-                          style={styles.projectlink}
-                          appearance="ghost"
-                          accessoryLeft={GithubIcon}
-                          onPress={() => {
-                            Linking.openURL('https://github.com/tomhibbers/tomhibbers.com_app');
-                          }}
-                        />
-                        <Button
-                          style={styles.projectlink}
-                          appearance="ghost"
-                          accessoryLeft={ExternalLinkIcon}
-                          onPress={() => {
-                            Linking.openURL('https://app.tomhibbers.com');
-                          }}
-                        />
-                      </Layout>
-                    </View>
+                      Tom Hibbers Website V2
+                    </Text>
+                  </Layout>
+                </Layout>
+              );
+            }}
+            footer={() => {
+              const theme = useTheme();
+              return (
+                <View
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    backgroundColor: theme['background-basic-color-4'],
+                  }}>
+                  <Text style={styles.tech}>React</Text>
+                  <Text style={styles.tech}>Typescript</Text>
+                  <Text style={styles.tech}>Styled Components</Text>
+                </View>
+              );
+            }}>
+            <Text style={styles.text}>
+              My first personal website. Written in Angular and Scully. My first foray into
+              Jamstack. Lots to learn and lots of fun.
+            </Text>
+          </Card>
+        </SimpleAnimation>
+        <SimpleAnimation
+          style={{ padding: 10 }}
+          delay={600}
+          duration={2000}
+          direction="right"
+          distance={wWidth}
+          fade
+          movementType="slide"
+          useNativeDriver={true}
+          animateOnUpdate={true}>
+          <Card
+            style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
+            header={() => {
+              const theme = useTheme();
+              return (
+                <Layout>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      backgroundColor: theme['background-basic-color-4'],
+                    }}>
+                    <Button appearance="ghost" accessoryLeft={ProjectIcon} />
                     <Layout
                       style={{
-                        justifyContent: 'center',
-                        alignItems: 'center',
+                        flexDirection: 'row',
                         backgroundColor: theme['background-basic-color-4'],
                       }}>
-                      <Text
-                        category="h6"
-                        style={{
-                          paddingVertical: 10,
-                          paddingHorizontal: 10,
-                        }}>
-                        Tom Hibbers Mobile App
-                      </Text>
+                      <Button
+                        style={styles.projectlink}
+                        appearance="ghost"
+                        accessoryLeft={GithubIcon}
+                        onPress={() => {
+                          Linking.openURL('https://github.com/tomhibbers/tomhibbers.com_app');
+                        }}
+                      />
+                      <Button
+                        style={styles.projectlink}
+                        appearance="ghost"
+                        accessoryLeft={ExternalLinkIcon}
+                        onPress={() => {
+                          Linking.openURL('https://app.tomhibbers.com');
+                        }}
+                      />
                     </Layout>
-                  </Layout>
-                );
-              }}
-              footer={() => {
-                const theme = useTheme();
-                return (
-                  <View
+                  </View>
+                  <Layout
                     style={{
                       justifyContent: 'center',
                       alignItems: 'center',
-                      flexDirection: 'row',
-                      flexWrap: 'wrap',
                       backgroundColor: theme['background-basic-color-4'],
                     }}>
-                    <Text style={styles.tech}>React Native</Text>
-                    <Text style={styles.tech}>Typescript</Text>
-                    <Text style={styles.tech}>UI Kitten</Text>
-                  </View>
-                );
-              }}>
-              <Text style={styles.text}>
-                The official app for tomhibbers.com. Written with React Native and UI Kitten.
-                Currently published on the android app store.
-              </Text>
-            </Card>
-          </SimpleAnimation>
-        </ScrollView>
-      </AnimatedLinearGradient>
+                    <Text
+                      category="h6"
+                      style={{
+                        paddingVertical: 10,
+                        paddingHorizontal: 10,
+                      }}>
+                      Tom Hibbers Mobile App
+                    </Text>
+                  </Layout>
+                </Layout>
+              );
+            }}
+            footer={() => {
+              const theme = useTheme();
+              return (
+                <View
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    backgroundColor: theme['background-basic-color-4'],
+                  }}>
+                  <Text style={styles.tech}>React Native</Text>
+                  <Text style={styles.tech}>Typescript</Text>
+                  <Text style={styles.tech}>UI Kitten</Text>
+                </View>
+              );
+            }}>
+            <Text style={styles.text}>
+              My first personal website. Written in Angular and Scully. My first foray into
+              Jamstack. Lots to learn and lots of fun.
+            </Text>
+          </Card>
+        </SimpleAnimation>
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 const { ids, styles } = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  scrollView: {
-    width: '100%',
-  },
   card: {
-    margin: 20,
+    margin: 0,
+    padding: 0,
     maxWidth: 800,
     opacity: 0.7,
   },
