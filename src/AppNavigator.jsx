@@ -179,6 +179,26 @@ export const DrawerNavigator = () => {
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
           activeTintColor: 'red',
+          headerTitle: (props) => (
+            <View
+              {...props}
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+              }}>
+              <Icon
+                style={{
+                  width: 24,
+                  height: 24,
+                  tintColor: theme['text-basic-color'],
+                  marginHorizontal: 10,
+                }}
+                name={'home-outline'}
+              />
+              <Text>Home</Text>
+            </View>
+          ),
         }}
       />
       <Screen
@@ -193,6 +213,26 @@ export const DrawerNavigator = () => {
           },
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
+          headerTitle: (props) => (
+            <View
+              {...props}
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+              }}>
+              <Icon
+                style={{
+                  width: 24,
+                  height: 24,
+                  tintColor: theme['text-basic-color'],
+                  marginHorizontal: 10,
+                }}
+                name={'person-outline'}
+              />
+              <Text>About</Text>
+            </View>
+          ),
         }}
       />
       <Screen
@@ -205,6 +245,26 @@ export const DrawerNavigator = () => {
           },
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
+          headerTitle: (props) => (
+            <View
+              {...props}
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+              }}>
+              <Icon
+                style={{
+                  width: 24,
+                  height: 24,
+                  tintColor: theme['text-basic-color'],
+                  marginHorizontal: 10,
+                }}
+                name={'briefcase-outline'}
+              />
+              <Text>Portfolio</Text>
+            </View>
+          ),
         }}
       />
       <Screen
@@ -217,6 +277,26 @@ export const DrawerNavigator = () => {
           },
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
+          headerTitle: (props) => (
+            <View
+              {...props}
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+              }}>
+              <Icon
+                style={{
+                  width: 24,
+                  height: 24,
+                  tintColor: theme['text-basic-color'],
+                  marginHorizontal: 10,
+                }}
+                name={'email-outline'}
+              />
+              <Text>Contact</Text>
+            </View>
+          ),
         }}
       />
       <Screen
@@ -229,6 +309,26 @@ export const DrawerNavigator = () => {
           },
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
+          headerTitle: (props) => (
+            <View
+              {...props}
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+              }}>
+              <Icon
+                style={{
+                  width: 24,
+                  height: 24,
+                  tintColor: theme['text-basic-color'],
+                  marginHorizontal: 10,
+                }}
+                name={'shield-outline'}
+              />
+              <Text>Privacy</Text>
+            </View>
+          ),
         }}
       />
       <Screen
@@ -241,6 +341,26 @@ export const DrawerNavigator = () => {
           },
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
+          headerTitle: (props) => (
+            <View
+              {...props}
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+              }}>
+              <Icon
+                style={{
+                  width: 24,
+                  height: 24,
+                  tintColor: theme['text-basic-color'],
+                  marginHorizontal: 10,
+                }}
+                name={'info-outline'}
+              />
+              <Text>Terms</Text>
+            </View>
+          ),
         }}
       />
     </Navigator>
