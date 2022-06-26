@@ -1,6 +1,14 @@
 import React from 'react';
 // import { AnimationOnScroll } from 'react-animation-on-scroll';
-import { View, SafeAreaView, Image, ImageProps, Linking, ScrollView, Dimensions } from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  Image,
+  ImageProps,
+  Linking,
+  ScrollView,
+  Dimensions,
+} from 'react-native';
 // import Animated, {
 //   FadeOutDown,
 //   FadeInUp,
@@ -12,6 +20,7 @@ import { ThemeContext } from '../theme-context';
 import StyleSheet from 'react-native-media-query';
 // import * as Animatable from 'react-native-animatable';
 import { SimpleAnimation } from 'react-native-simple-animations';
+import AnimatedLinearGradient, { presetColors } from './AnimatedGradient';
 const EmailIcon = (props?: Partial<ImageProps>): React.ReactElement<ImageProps> => (
   <Icon {...props} name="email-outline" />
 );
@@ -34,32 +43,17 @@ export const Contact = () => {
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme['background-basic-color-1'] }]}>
-      <ScrollView contentContainerStyle={{justifyContent:'center',alignItems:'center'}} style={styles.scrollView}>
-        <SimpleAnimation
-          delay={500}
-          duration={2000}
-          direction="left"
-          distance={wWidth}
-          fade
-          movementType="slide"
-          useNativeDriver={true}
-          animateOnUpdate={true}>
-          <Card
-            style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
-            header={Header}>
-            <Text style={styles.text}>
-              If you've seen my potential or want to talk to me, don't hesitate to send me a
-              message.
-            </Text>
-          </Card>
-        </SimpleAnimation>
-        <Layout
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-          }}>
+      <AnimatedLinearGradient
+        customColors={[
+          theme['background-basic-color-1'],
+          theme['color-primary-500'],
+          theme['color-info-500'],
+          theme['background-basic-color-4'],
+        ]}
+        speed={4000}>
+        <ScrollView
+          contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}
+          style={styles.scrollView}>
           <SimpleAnimation
             delay={500}
             duration={2000}
@@ -69,35 +63,62 @@ export const Contact = () => {
             movementType="slide"
             useNativeDriver={true}
             animateOnUpdate={true}>
-            <Button
-              style={styles.button}
-              accessoryLeft={EmailIcon}
-              onPress={() => {
-                Linking.openURL('mailto:tomhibbers@gmail.com');
-              }}>
-              CONTACT
-            </Button>
+            <Card
+              style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
+              header={Header}>
+              <Text style={styles.text}>
+                If you've seen my potential or want to talk to me, don't hesitate to send me a
+                message.
+              </Text>
+            </Card>
           </SimpleAnimation>
-          <SimpleAnimation
-            delay={700}
-            duration={2000}
-            direction="left"
-            distance={wWidth}
-            fade
-            movementType="slide"
-            useNativeDriver={true}
-            animateOnUpdate={true}>
-            <Button
-              style={styles.button}
-              accessoryLeft={PhoneIcon}
-              onPress={() => {
-                Linking.openURL('tel:+270822987183');
-              }}>
-              PHONE
-            </Button>
-          </SimpleAnimation>
-        </Layout>
-      </ScrollView>
+          <Layout
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              backgroundColor: 'transparent',
+            }}>
+            <SimpleAnimation
+              delay={500}
+              duration={2000}
+              direction="left"
+              distance={wWidth}
+              fade
+              movementType="slide"
+              useNativeDriver={true}
+              animateOnUpdate={true}>
+              <Button
+                style={styles.button}
+                accessoryLeft={EmailIcon}
+                onPress={() => {
+                  Linking.openURL('mailto:tomhibbers@gmail.com');
+                }}>
+                CONTACT
+              </Button>
+            </SimpleAnimation>
+            <SimpleAnimation
+              delay={700}
+              duration={2000}
+              direction="left"
+              distance={wWidth}
+              fade
+              movementType="slide"
+              useNativeDriver={true}
+              animateOnUpdate={true}>
+              <Button
+                style={styles.button}
+                accessoryLeft={PhoneIcon}
+                onPress={() => {
+                  Linking.openURL('tel:+270822987183');
+                }}>
+                PHONE
+              </Button>
+            </SimpleAnimation>
+          </Layout>
+        </ScrollView>
+      </AnimatedLinearGradient>
     </SafeAreaView>
   );
 };
@@ -114,6 +135,7 @@ const { ids, styles } = StyleSheet.create({
   card: {
     margin: 20,
     maxWidth: 800,
+    opacity: 0.7,
   },
   text: {
     textAlign: 'center',

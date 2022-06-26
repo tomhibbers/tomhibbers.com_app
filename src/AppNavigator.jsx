@@ -47,7 +47,7 @@ const renderHeader = () => {
   );
 
   return (
-    <SafeAreaView style={{backgroundColor: theme['background-basic-color-2']}}>
+    <SafeAreaView style={{ backgroundColor: theme['background-basic-color-2'] }}>
       <Layout insets="top" level="2">
         <Layout style={styles.header} level="2">
           <View style={styles.profileContainer}>
@@ -172,7 +172,10 @@ export const DrawerNavigator = () => {
         name="Home"
         component={Home}
         options={{
-          headerStyle: { backgroundColor: theme['background-basic-color-3'], borderBottomWidth: 0 },
+          headerStyle: {
+            backgroundColor: theme['background-basic-color-3'],
+            borderBottomColor: theme['border-basic-color-5'],
+          },
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
           activeTintColor: 'red',
@@ -184,7 +187,10 @@ export const DrawerNavigator = () => {
         options={{
           drawerLabelStyle: { color: 'red' },
           activeTintColor: { color: 'red' },
-          headerStyle: { backgroundColor: theme['background-basic-color-3'], borderBottomWidth: 0 },
+          headerStyle: {
+            backgroundColor: theme['background-basic-color-3'],
+            borderBottomColor: theme['border-basic-color-5'],
+          },
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
         }}
@@ -193,7 +199,10 @@ export const DrawerNavigator = () => {
         name="Portfolio"
         component={Portfolio}
         options={{
-          headerStyle: { backgroundColor: theme['background-basic-color-3'], borderBottomWidth: 0 },
+          headerStyle: {
+            backgroundColor: theme['background-basic-color-3'],
+            borderBottomColor: theme['border-basic-color-5'],
+          },
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
         }}
@@ -202,7 +211,10 @@ export const DrawerNavigator = () => {
         name="Contact"
         component={Contact}
         options={{
-          headerStyle: { backgroundColor: theme['background-basic-color-3'], borderBottomWidth: 0 },
+          headerStyle: {
+            backgroundColor: theme['background-basic-color-3'],
+            borderBottomColor: theme['border-basic-color-5'],
+          },
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
         }}
@@ -211,7 +223,10 @@ export const DrawerNavigator = () => {
         name="Privacy"
         component={Privacy}
         options={{
-          headerStyle: { backgroundColor: theme['background-basic-color-3'], borderBottomWidth: 0 },
+          headerStyle: {
+            backgroundColor: theme['background-basic-color-3'],
+            borderBottomColor: theme['border-basic-color-5'],
+          },
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
         }}
@@ -220,7 +235,10 @@ export const DrawerNavigator = () => {
         name="Terms"
         component={Terms}
         options={{
-          headerStyle: { backgroundColor: theme['background-basic-color-3'], borderBottomWidth: 0 },
+          headerStyle: {
+            backgroundColor: theme['background-basic-color-3'],
+            borderBottomColor: theme['border-basic-color-5'],
+          },
           headerTintColor: theme['text-basic-color'],
           headerTitleAlign: 'center',
         }}
