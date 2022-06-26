@@ -72,6 +72,7 @@ export const Contact = () => {
               alignItems: 'center',
               flexDirection: 'row',
               flexWrap: 'wrap',
+              maxWidth: 800,
               width: '100%',
             }}>
             <SimpleAnimation
@@ -142,6 +143,6 @@ const { ids, styles } = StyleSheet.create({
     marginVertical: 5,
   },
   button: {
-    marginHorizontal: '5%',
+    marginHorizontal: '2.5%',
   },
 });
