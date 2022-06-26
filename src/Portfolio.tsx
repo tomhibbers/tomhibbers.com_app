@@ -16,6 +16,7 @@ import AnimatedLinearGradient, { presetColors } from './AnimatedGradient';
 
 const GithubIcon = (props: any) => <Icon {...props} name="github-outline" />;
 const ExternalLinkIcon = (props: any) => <Icon {...props} name="external-link-outline" />;
+const ProjectIcon = (props: any) => <Icon {...props} name="activity-outline" />;
 export const Portfolio = () => {
   const theme = useTheme();
   const wWidth = Dimensions.get('window').width;
@@ -47,35 +48,45 @@ export const Portfolio = () => {
               header={() => {
                 const theme = useTheme();
                 return (
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      backgroundColor: theme['background-basic-color-4'],
-                    }}>
-                    <Text
-                      category="h6"
-                      style={{
-                        paddingVertical: 10,
-                        paddingHorizontal: 10,
-                      }}>
-                      TomHibbers.com V1
-                    </Text>
-                    <Layout
+                  <Layout>
+                    <View
                       style={{
                         flexDirection: 'row',
+                        justifyContent: 'space-between',
                         backgroundColor: theme['background-basic-color-4'],
                       }}>
-                      <Button
-                        style={styles.projectlink}
-                        onPress={() => {
-                          Linking.openURL('https://github.com/tomhibbers/tomhibbers.com_v1');
-                        }}
-                        appearance="ghost"
-                        accessoryLeft={GithubIcon}
-                      />
+                      <Button appearance="ghost" accessoryLeft={ProjectIcon} />
+                      <Layout
+                        style={{
+                          flexDirection: 'row',
+                          backgroundColor: theme['background-basic-color-4'],
+                        }}>
+                        <Button
+                          style={styles.projectlink}
+                          onPress={() => {
+                            Linking.openURL('https://github.com/tomhibbers/tomhibbers.com_v1');
+                          }}
+                          appearance="ghost"
+                          accessoryLeft={GithubIcon}
+                        />
+                      </Layout>
+                    </View>
+                    <Layout
+                      style={{
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        backgroundColor: theme['background-basic-color-4'],
+                      }}>
+                      <Text
+                        category="h6"
+                        style={{
+                          paddingVertical: 10,
+                          paddingHorizontal: 10,
+                        }}>
+                        Tom Hibbers Website V1
+                      </Text>
                     </Layout>
-                  </View>
+                  </Layout>
                 );
               }}
               footer={() => {
@@ -83,8 +94,10 @@ export const Portfolio = () => {
                 return (
                   <View
                     style={{
-                      flexDirection: 'row',
                       justifyContent: 'center',
+                      alignItems: 'center',
+                      flexDirection: 'row',
+                      flexWrap: 'wrap',
                       backgroundColor: theme['background-basic-color-4'],
                     }}>
                     <Text style={styles.tech}>Angular</Text>
@@ -113,43 +126,53 @@ export const Portfolio = () => {
               header={() => {
                 const theme = useTheme();
                 return (
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      backgroundColor: theme['background-basic-color-4'],
-                    }}>
-                    <Text
-                      category="h6"
-                      style={{
-                        paddingVertical: 10,
-                        paddingHorizontal: 10,
-                      }}>
-                      TomHibbers.com V2
-                    </Text>
-                    <Layout
+                  <Layout>
+                    <View
                       style={{
                         flexDirection: 'row',
+                        justifyContent: 'space-between',
                         backgroundColor: theme['background-basic-color-4'],
                       }}>
-                      <Button
-                        style={styles.projectlink}
-                        appearance="ghost"
-                        accessoryLeft={GithubIcon}
-                        onPress={() => {
-                          Linking.openURL('https://github.com/tomhibbers/tomhibbers.com_v2');
-                        }}
-                      />
-                      <Button
-                        style={styles.projectlink}
-                        appearance="ghost"
-                        accessoryLeft={ExternalLinkIcon}
-                        onPress={() => {
-                          Linking.openURL('https://tomhibbers.com');
-                        }}
-                      />
+                      <Button appearance="ghost" accessoryLeft={ProjectIcon} />
+                      <Layout
+                        style={{
+                          flexDirection: 'row',
+                          backgroundColor: theme['background-basic-color-4'],
+                        }}>
+                        <Button
+                          style={styles.projectlink}
+                          appearance="ghost"
+                          accessoryLeft={GithubIcon}
+                          onPress={() => {
+                            Linking.openURL('https://github.com/tomhibbers/tomhibbers.com_v2');
+                          }}
+                        />
+                        <Button
+                          style={styles.projectlink}
+                          appearance="ghost"
+                          accessoryLeft={ExternalLinkIcon}
+                          onPress={() => {
+                            Linking.openURL('https://tomhibbers.com');
+                          }}
+                        />
+                      </Layout>
+                    </View>
+                    <Layout
+                      style={{
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        backgroundColor: theme['background-basic-color-4'],
+                      }}>
+                      <Text
+                        category="h6"
+                        style={{
+                          paddingVertical: 10,
+                          paddingHorizontal: 10,
+                        }}>
+                        Tom Hibbers Website V2
+                      </Text>
                     </Layout>
-                  </View>
+                  </Layout>
                 );
               }}
               footer={() => {
@@ -189,43 +212,53 @@ export const Portfolio = () => {
               header={() => {
                 const theme = useTheme();
                 return (
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      backgroundColor: theme['background-basic-color-4'],
-                    }}>
-                    <Text
-                      category="h6"
-                      style={{
-                        paddingVertical: 10,
-                        paddingHorizontal: 10,
-                      }}>
-                      Tom Hibbers Mobile App
-                    </Text>
-                    <Layout
+                  <Layout>
+                    <View
                       style={{
                         flexDirection: 'row',
+                        justifyContent: 'space-between',
                         backgroundColor: theme['background-basic-color-4'],
                       }}>
-                      <Button
-                        style={styles.projectlink}
-                        appearance="ghost"
-                        accessoryLeft={GithubIcon}
-                        onPress={() => {
-                          Linking.openURL('https://github.com/tomhibbers/tomhibbers.com_app');
-                        }}
-                      />
-                      <Button
-                        style={styles.projectlink}
-                        appearance="ghost"
-                        accessoryLeft={ExternalLinkIcon}
-                        onPress={() => {
-                          Linking.openURL('https://app.tomhibbers.com');
-                        }}
-                      />
+                      <Button appearance="ghost" accessoryLeft={ProjectIcon} />
+                      <Layout
+                        style={{
+                          flexDirection: 'row',
+                          backgroundColor: theme['background-basic-color-4'],
+                        }}>
+                        <Button
+                          style={styles.projectlink}
+                          appearance="ghost"
+                          accessoryLeft={GithubIcon}
+                          onPress={() => {
+                            Linking.openURL('https://github.com/tomhibbers/tomhibbers.com_app');
+                          }}
+                        />
+                        <Button
+                          style={styles.projectlink}
+                          appearance="ghost"
+                          accessoryLeft={ExternalLinkIcon}
+                          onPress={() => {
+                            Linking.openURL('https://app.tomhibbers.com');
+                          }}
+                        />
+                      </Layout>
+                    </View>
+                    <Layout
+                      style={{
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        backgroundColor: theme['background-basic-color-4'],
+                      }}>
+                      <Text
+                        category="h6"
+                        style={{
+                          paddingVertical: 10,
+                          paddingHorizontal: 10,
+                        }}>
+                        Tom Hibbers Mobile App
+                      </Text>
                     </Layout>
-                  </View>
+                  </Layout>
                 );
               }}
               footer={() => {
@@ -292,5 +325,9 @@ const { ids, styles } = StyleSheet.create({
   tech: {
     marginHorizontal: 20,
     marginVertical: 10,
+  },
+  icon: {
+    width: 32,
+    height: 32,
   },
 });
