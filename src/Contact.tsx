@@ -74,13 +74,18 @@ export const Contact = () => {
           </SimpleAnimation>
           <Layout
             style={{
+              backgroundColor: 'transparent',
+              marginVertical: 40,
               justifyContent: 'center',
               alignItems: 'center',
               flexDirection: 'row',
               flexWrap: 'wrap',
-              backgroundColor: 'transparent',
+              width: '100%',
             }}>
             <SimpleAnimation
+              style={{
+                width: '40%',
+              }}
               delay={500}
               duration={2000}
               direction="left"
@@ -99,6 +104,9 @@ export const Contact = () => {
               </Button>
             </SimpleAnimation>
             <SimpleAnimation
+              style={{
+                width: '40%',
+              }}
               delay={700}
               duration={2000}
               direction="left"
@@ -142,18 +150,6 @@ const { ids, styles } = StyleSheet.create({
     marginVertical: 5,
   },
   button: {
-    marginLeft: 10,
-    marginRight: 10,
-    marginVertical: 16,
-  },
-  containerRow: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  avatar: {
-    marginHorizontal: 5,
+    marginHorizontal: '5%',
   },
 });
