@@ -1,5 +1,4 @@
 import React from 'react';
-// import { AnimationOnScroll } from 'react-animation-on-scroll';
 import {
   View,
   SafeAreaView,
@@ -9,31 +8,18 @@ import {
   ScrollView,
   Dimensions,
 } from 'react-native';
-// import Animated, {
-//   FadeOutDown,
-//   FadeInUp,
-//   Layout as LayoutAnimated,
-//   Easing,
-// } from 'react-native-reanimated';
 import { Avatar, Button, Card, Icon, Layout, Text, useTheme } from '@ui-kitten/components';
 import { ThemeContext } from '../theme-context';
 import StyleSheet from 'react-native-media-query';
-// import * as Animatable from 'react-native-animatable';
 import { SimpleAnimation } from 'react-native-simple-animations';
 import { Link, useNavigation } from '@react-navigation/native';
 import AnimatedLinearGradient, { presetColors } from './AnimatedGradient';
-const EmailIcon = (props?: Partial<ImageProps>): React.ReactElement<ImageProps> => (
-  <Icon {...props} name="email-outline" />
-);
-const PhoneIcon = (props?: Partial<ImageProps>): React.ReactElement<ImageProps> => (
-  <Icon {...props} name="phone-outline" />
-);
 const Header = () => {
   const theme = useTheme();
   return (
     <View style={{ paddingVertical: 5, backgroundColor: theme['background-basic-color-4'] }}>
       <Text style={{ textAlign: 'center' }} category="h6">
-        TomHibbers Privacy Policy
+        Tom Hibbers Privacy Policy
       </Text>
     </View>
   );

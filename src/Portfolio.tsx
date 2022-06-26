@@ -1,16 +1,8 @@
 import React from 'react';
-// import { AnimationOnScroll } from 'react-animation-on-scroll';
 import { View, SafeAreaView, Image, Linking, ScrollView, Dimensions } from 'react-native';
-// import Animated, {
-//   FadeOutDown,
-//   FadeInUp,
-//   Layout as LayoutAnimated,
-//   Easing,
-// } from 'react-native-reanimated';
 import { Avatar, Button, Card, Icon, Layout, Text, useTheme } from '@ui-kitten/components';
 import { ThemeContext } from '../theme-context';
 import StyleSheet from 'react-native-media-query';
-// import * as Animatable from 'react-native-animatable';
 import { SimpleAnimation } from 'react-native-simple-animations';
 import AnimatedLinearGradient, { presetColors } from './AnimatedGradient';
 

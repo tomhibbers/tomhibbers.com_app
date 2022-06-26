@@ -23,7 +23,6 @@ const CVIcon = (props?: Partial<ImageProps>): React.ReactElement<ImageProps> => 
   <Icon {...props} name="attach-outline" />
 );
 export const Home = ({ navigation }) => {
-  // const [animation, setAnimation] = React.useState(new Animated.Value(0));
   const theme = useTheme();
   const wWidth = Dimensions.get('window').width;
   return (

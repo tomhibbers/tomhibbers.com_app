@@ -1,5 +1,4 @@
 import React from 'react';
-// import { AnimationOnScroll } from 'react-animation-on-scroll';
 import {
   View,
   SafeAreaView,
@@ -9,16 +8,9 @@ import {
   ScrollView,
   Dimensions,
 } from 'react-native';
-// import Animated, {
-//   FadeOutDown,
-//   FadeInUp,
-//   Layout as LayoutAnimated,
-//   Easing,
-// } from 'react-native-reanimated';
 import { Avatar, Button, Card, Icon, Layout, Text, useTheme } from '@ui-kitten/components';
 import { ThemeContext } from '../theme-context';
 import StyleSheet from 'react-native-media-query';
-// import * as Animatable from 'react-native-animatable';
 import { SimpleAnimation } from 'react-native-simple-animations';
 import AnimatedLinearGradient, { presetColors } from './AnimatedGradient';
 const EmailIcon = (props?: Partial<ImageProps>): React.ReactElement<ImageProps> => (
@@ -32,7 +24,7 @@ const Header = () => {
   return (
     <View style={{ paddingVertical: 5, backgroundColor: theme['background-basic-color-4'] }}>
       <Text style={{ textAlign: 'center' }} category="h6">
-        TomHibbers Terms of Use
+        Tom Hibbers Terms of Use
       </Text>
     </View>
   );
@@ -67,8 +59,8 @@ export const Terms = () => {
               style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
               header={Header}>
               <Text style={styles.text}>
-                Thank you for using TomHibbers. These terms of use — referred to as “Terms” — apply
-                to your use of TomHibbers’s software and services (including the apps Tom Hibbers) —
+                Thank you for using Tom Hibbers. These terms of use — referred to as “Terms” — apply
+                to your use of Tom Hibber’s software and services (including the apps Tom Hibbers) —
                 referred to as “Services”. Your use of the Services indicates you agree to the
                 Terms, so please read carefully.
               </Text>
@@ -82,7 +74,7 @@ export const Terms = () => {
                 license to use the Software solely for your personal purposes. This license enters
                 into force through your installation or use of the Software in accordance with the
                 Terms. All rights and licenses not expressly granted to you under this agreement are
-                retained by TomHibbers. We may update the Software on your device automatically to
+                retained by Tom Hibbers. We may update the Software on your device automatically to
                 provide new features and security upgrades.
               </Text>
               <Text style={styles.textHeader} category={'h5'}>
@@ -99,7 +91,7 @@ export const Terms = () => {
               <Text style={styles.text}>
                 The software and other technology we use to provide the Services are protected by
                 copyright, trademark, and other laws of both the United States and foreign
-                countries. These terms don’t give you the right to use the TomHibbers logos,
+                countries. These terms don’t give you the right to use the Tom Hibbers logos,
                 trademarks, domain names, or other brand features.
               </Text>
               <Text style={styles.textHeader} category={'h5'}>
@@ -110,7 +102,7 @@ export const Terms = () => {
                 probe, scan, or test the vulnerability of any system or network; breach or otherwise
                 circumvent any security or authentication measures; access, tamper with, or use
                 non-public areas of the Services, areas of the Services you haven’t been invited to
-                including TomHibbers’s or our service providers’ computer systems; or commercialize,
+                including Tom Hibbers’s or our service providers’ computer systems; or commercialize,
                 reproduce, modify, translate, create any derivative works, circumvent, disable,
                 decompile, disassemble, reverse engineer, or otherwise attempt to derive the source
                 code for the Services (our open-source code is subject to separate licenses).
@@ -121,10 +113,10 @@ export const Terms = () => {
               <Text style={styles.text}>
                 All content submitted to or available through the Services is the sole
                 responsibility of the person who submitted the content. By submitting, posting, or
-                displaying content as part of the Services, you give TomHibbers the right to use
-                such content. TomHibbers doesn’t control, monitor, or have any detailed knowledge of
+                displaying content as part of the Services, you give Tom Hibbers the right to use
+                such content. Tom Hibbers doesn’t control, monitor, or have any detailed knowledge of
                 the content. Therefore, you may be exposed to info that’s incorrect, offensive, or
-                otherwise objectionable. TomHibbers shall not be liable for the content and other
+                otherwise objectionable. Tom Hibbers shall not be liable for the content and other
                 info spread or delivered through or in connection with the Services. You agree that
                 you shall bear all risks associated with the use of such info. We have no
                 responsibility to remove content you make public — for example, comments you make on
@@ -166,14 +158,14 @@ export const Terms = () => {
                 (The next paragraph is capitalized because of its importance.)
               </Text>
               <Text style={styles.text}>
-                TO THE MAXIMUM EXTENT PERMITTED BY LAW, TOMHIBBERS MAKES NO WARRANTY OR
+                TO THE MAXIMUM EXTENT PERMITTED BY LAW, Tom Hibbers MAKES NO WARRANTY OR
                 REPRESENTATION WITH RESPECT TO THE SERVICES, THEIR QUALITY, PERFORMANCE,
                 MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. AS A RESULT, THE SERVICES ARE
                 PROVIDED “AS IS” AND YOU’RE ASSUMING THE ENTIRE RISK AS TO THEIR QUALITY AND
                 PERFORMANCE.
               </Text>
               <Text style={styles.text}>
-                You understand and acknowledge that TomHibbers won’t be liable for problems
+                You understand and acknowledge that Tom Hibbers won’t be liable for problems
                 attributable to the operation of the Services. Some states don’t allow these types
                 of limiting terms.
               </Text>
@@ -182,7 +174,7 @@ export const Terms = () => {
               </Text>
               <Text style={styles.text}>(Again with the capitalization.)</Text>
               <Text style={styles.text}>
-                YOU EXPRESSLY AGREE THAT TOMHIBBERS SHALL, IN NO EVENT, BE LIABLE FOR ANY DIRECT,
+                YOU EXPRESSLY AGREE THAT Tom Hibbers SHALL, IN NO EVENT, BE LIABLE FOR ANY DIRECT,
                 INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES, INCLUDING BUT
                 NOT LIMITED TO DAMAGES FOR LOSS OF PROFITS AND GOODWILL, ARISING OUT OF THE USE OR
                 INABILITY TO USE THE SERVICES, even if advised of the possibility of such damages.
@@ -201,7 +193,7 @@ export const Terms = () => {
                 Waiver
               </Text>
               <Text style={styles.text}>
-                The waiver or failure of TomHibbers to exercise any right provided for in the Terms
+                The waiver or failure of Tom Hibbers to exercise any right provided for in the Terms
                 shall not be deemed a waiver of any further or future right under the Terms.
               </Text>
               <Text style={styles.textHeader} category={'h5'}>
@@ -212,7 +204,7 @@ export const Terms = () => {
                 and construed in accordance with US federal law and the laws of the state of
                 California. All disputes relating to the Terms shall be settled in the California
                 State Court, County of Santa Clara or in the US Federal Court, Northern District of
-                California. You and TomHibbers agree to submit to the jurisdiction of and agree that
+                California. You and Tom Hibbers agree to submit to the jurisdiction of and agree that
                 venue is proper in these courts in any such legal action or proceeding.
               </Text>
               <Text style={styles.textHeader} category={'h5'}>
@@ -221,13 +213,13 @@ export const Terms = () => {
               <Text style={styles.text}>
                 We may make small, inconsequential changes to the Terms with or without notice to
                 you, so you’re encouraged to review the Terms from time to time. Changes we consider
-                significant will be emailed to users who subscribe to the TomHibbers newsletter or
+                significant will be emailed to users who subscribe to the Tom Hibbers newsletter or
                 to those who submit a request to{' '}
                 <Text
                   status={'primary'}
-                  onPress={() => Linking.openURL('mailto:tomhibbers@gmail.com')}>
+                  onPress={() => Linking.openURL('mailto:Tom Hibbers@gmail.com')}>
                   {' '}
-                  tomhibbers@gmail.com
+                  Tom Hibbers@gmail.com
                 </Text>
                 . By continuing to use the Services after revisions become effective, you are
                 agreeing to the revised terms. If you don’t agree to the revised terms, please stop
@@ -240,9 +232,9 @@ export const Terms = () => {
                 You can contact us at{' '}
                 <Text
                   status={'primary'}
-                  onPress={() => Linking.openURL('mailto:tomhibbers@gmail.com')}>
+                  onPress={() => Linking.openURL('mailto:Tom Hibbers@gmail.com')}>
                   {' '}
-                  tomhibbers@gmail.com
+                  Tom Hibbers@gmail.com
                 </Text>{' '}
                 if you have any questions about the Terms.
               </Text>
