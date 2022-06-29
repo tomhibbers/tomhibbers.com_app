@@ -29,6 +29,7 @@ export const Portfolio = () => {
           justifyContent: 'center',
           flexDirection: 'column',
           alignItems: 'center',
+          marginVertical: 50,
         }}>
         <SimpleAnimation
           style={{ padding: 10, textAlign: 'center' }}
