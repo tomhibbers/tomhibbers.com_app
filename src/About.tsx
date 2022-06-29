@@ -27,7 +27,7 @@ export const About = () => {
           theme['color-info-500'],
           theme['background-basic-color-4'],
         ]}
-        speed={4000}></AnimatedLinearGradient>
+        speed={2000}></AnimatedLinearGradient>
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,

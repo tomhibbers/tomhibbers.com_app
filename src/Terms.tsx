@@ -41,7 +41,7 @@ export const Terms = () => {
           theme['color-info-500'],
           theme['background-basic-color-4'],
         ]}
-        speed={4000}
+        speed={2000}
       />
       <ScrollView
         contentContainerStyle={{
