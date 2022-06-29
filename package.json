@@ -10,9 +10,9 @@
     "web": "expo start --web",
     "build:web": "expo build:web",
     "eject": "expo eject",
-    "build:aap": "eas build -p android --profile aap",
-    "build:apk": "eas build -p android --profile apk",
-    "submit:aap": "eas submit -p android --profile aap"
+    "build:dev": "eas build -p android --profile dev",
+    "build:store": "eas build -p android --profile store",
+    "submit:uat": "eas submit -p android --profile uat"
   },
   "resolutions": {
     "@types/react": "~17.0.21"

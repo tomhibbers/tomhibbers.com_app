@@ -3,10 +3,12 @@ import {
   Dimensions,
   Easing,
   Image,
+  ImageBackground,
   ImageProps,
   Linking,
   SafeAreaView,
   ScrollView,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import { Button, Card, Icon, Layout, Text, useTheme } from '@ui-kitten/components';
@@ -155,6 +157,28 @@ export const Home = ({ navigation }) => {
             </Layout>
           </SimpleAnimation>
         </View>
+        <SimpleAnimation
+          style={{ marginVertical: 50 }}
+          delay={500}
+          duration={2000}
+          direction="up"
+          distance={wWidth}
+          fade
+          movementType="slide"
+          useNativeDriver={true}
+          animateOnUpdate={true}>
+          <TouchableOpacity onPress={() => {
+              Linking.openURL('https://play.google.com/store/apps/details?id=com.tomhibbers.app');
+            }}>
+            <Image
+              style={{
+                width: 200,
+                height: 60,
+              }}
+              source={require('../assets/google-play-badge.png')}
+            />
+          </TouchableOpacity>
+        </SimpleAnimation>
       </ScrollView>
     </SafeAreaView>
   );
