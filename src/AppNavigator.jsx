@@ -26,17 +26,17 @@ import { Terms } from './Terms';
 
 const { Navigator, Screen } = createDrawerNavigator();
 
-const ForwardIcon = (props) => <Icon {...props} name="arrow-ios-forward" />;
-const LinkedInIcon = (props) => <Icon {...props} name="linkedin-outline" />;
-const GithubIcon = (props) => <Icon {...props} name="github-outline" />;
-const TwitterIcon = (props) => <Icon {...props} name="twitter-outline" />;
-const HomeIcon = (props) => <Icon {...props} name="home-outline" />;
-const AboutIcon = (props) => <Icon {...props} name="person-outline" />;
-const PortfolioIcon = (props) => <Icon {...props} name="briefcase-outline" />;
-const ContactIcon = (props) => <Icon {...props} name="email-outline" />;
-const WebsiteIcon = (props) => <Icon {...props} name="globe-outline" />;
-const PrivacyIcon = (props) => <Icon {...props} name="shield-outline" />;
-const TermsIcon = (props) => <Icon {...props} name="info-outline" />;
+const ForwardIcon = (props) => <Icon {...props} name="chevron-right" pack="feather" />;
+const LinkedInIcon = (props) => <Icon {...props} name="linkedin" pack="feather" />;
+const GithubIcon = (props) => <Icon {...props} name="github" pack="feather" />;
+const TwitterIcon = (props) => <Icon {...props} name="twitter" pack="feather" />;
+const HomeIcon = (props) => <Icon {...props} name="home" pack="feather" />;
+const AboutIcon = (props) => <Icon {...props} name="user" pack="feather" />;
+const PortfolioIcon = (props) => <Icon {...props} name="briefcase" pack="feather" />;
+const ContactIcon = (props) => <Icon {...props} name="mail" pack="feather" />;
+const WebsiteIcon = (props) => <Icon {...props} name="globe" pack="feather" />;
+const PrivacyIcon = (props) => <Icon {...props} name="shield" pack="feather" />;
+const TermsIcon = (props) => <Icon {...props} name="info" pack="feather" />;
 
 const renderHeader = () => {
   const themeContext = React.useContext(ThemeContext);
@@ -194,7 +194,8 @@ export const DrawerNavigator = () => {
                   tintColor: theme['text-basic-color'],
                   marginHorizontal: 10,
                 }}
-                name={'home-outline'}
+                name={'home'}
+                pack="feather"
               />
               <Text>Home</Text>
             </View>
@@ -228,7 +229,8 @@ export const DrawerNavigator = () => {
                   tintColor: theme['text-basic-color'],
                   marginHorizontal: 10,
                 }}
-                name={'person-outline'}
+                name={'user'}
+                pack="feather"
               />
               <Text>About</Text>
             </View>
@@ -260,7 +262,8 @@ export const DrawerNavigator = () => {
                   tintColor: theme['text-basic-color'],
                   marginHorizontal: 10,
                 }}
-                name={'briefcase-outline'}
+                name={'briefcase'}
+                pack="feather"
               />
               <Text>Portfolio</Text>
             </View>
@@ -292,7 +295,8 @@ export const DrawerNavigator = () => {
                   tintColor: theme['text-basic-color'],
                   marginHorizontal: 10,
                 }}
-                name={'email-outline'}
+                name={'mail'}
+                pack="feather"
               />
               <Text>Contact</Text>
             </View>
@@ -324,7 +328,8 @@ export const DrawerNavigator = () => {
                   tintColor: theme['text-basic-color'],
                   marginHorizontal: 10,
                 }}
-                name={'shield-outline'}
+                name={'shield'}
+                pack="feather"
               />
               <Text>Privacy</Text>
             </View>
@@ -356,7 +361,8 @@ export const DrawerNavigator = () => {
                   tintColor: theme['text-basic-color'],
                   marginHorizontal: 10,
                 }}
-                name={'info-outline'}
+                name={'info'}
+                pack="feather"
               />
               <Text>Terms</Text>
             </View>
@@ -367,7 +373,6 @@ export const DrawerNavigator = () => {
   );
 };
 const linking = {
-  // prefixes: ['https://mychat.com', 'mychat://'],
   config: {
     screens: {
       Home: '',

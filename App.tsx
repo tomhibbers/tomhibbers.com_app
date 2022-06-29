@@ -1,8 +1,6 @@
 import React from 'react';
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider, Button, Icon, IconRegistry } from '@ui-kitten/components';
-import { EvaIconsPack } from '@ui-kitten/eva-icons';
-// import { AppNavigator } from './navigation.component';
 import { ThemeContext } from './theme-context';
 import { Home } from './src/Home';
 import { AppNavigator } from './src/AppNavigator';
@@ -10,9 +8,10 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import AppLoading from 'expo-app-loading';
 import { Asset } from 'expo-asset';
 import { Platform, StatusBar } from 'react-native';
+import { FontAwesomeIconsPack } from './src/FontAwesomeIconsPack';
+import { FeatherIconsPack } from './src/FeatherIconsPack';
+import { AssetIconsPack } from './src/AssetIconsPack';
 
-const LightIcon = (props) => <Icon {...props} name="sun-outline" />;
-const DarkIcon = (props) => <Icon {...props} name="moon-outline" />;
 const themeC = require('./app-theme.json');
 const App = () => {
   const [theme, setTheme] = React.useState('dark');
@@ -48,7 +47,7 @@ const App = () => {
   }
   return (
     <>
-      <IconRegistry icons={EvaIconsPack} />
+      <IconRegistry icons={[FeatherIconsPack, FontAwesomeIconsPack, AssetIconsPack]} />
       <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>
         <ApplicationProvider {...eva} theme={{ ...eva[theme as 'light' | 'dark'], ...themeC }}>
           <SafeAreaProvider>

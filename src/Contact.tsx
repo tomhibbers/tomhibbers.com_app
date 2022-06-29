@@ -13,12 +13,8 @@ import { ThemeContext } from '../theme-context';
 import StyleSheet from 'react-native-media-query';
 import { SimpleAnimation } from 'react-native-simple-animations';
 import AnimatedLinearGradient, { presetColors } from './AnimatedGradient';
-const EmailIcon = (props?: Partial<ImageProps>): React.ReactElement<ImageProps> => (
-  <Icon {...props} name="email-outline" />
-);
-const PhoneIcon = (props?: Partial<ImageProps>): React.ReactElement<ImageProps> => (
-  <Icon {...props} name="phone-outline" />
-);
+const EmailIcon = (props: any) => <Icon {...props} name="mail" pack='feather'/>;
+const PhoneIcon = (props: any) => <Icon {...props} name="phone" pack='feather'/>;
 const Header = () => {
   const theme = useTheme();
   return (

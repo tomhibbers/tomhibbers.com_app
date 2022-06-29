@@ -1,14 +1,30 @@
 import React from 'react';
-import { View, SafeAreaView, Image, Linking, ScrollView, Dimensions } from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  Image,
+  Linking,
+  ScrollView,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import { Avatar, Button, Card, Icon, Layout, Text, useTheme } from '@ui-kitten/components';
 import { ThemeContext } from '../theme-context';
 import StyleSheet from 'react-native-media-query';
 import { SimpleAnimation } from 'react-native-simple-animations';
 import AnimatedLinearGradient, { presetColors } from './AnimatedGradient';
+import { FontAwesome5 } from '@expo/vector-icons';
+import FontAwesome from '@expo/vector-icons';
 
-const GithubIcon = (props: any) => <Icon {...props} name="github-outline" />;
-const ExternalLinkIcon = (props: any) => <Icon {...props} name="external-link-outline" />;
-const ProjectIcon = (props: any) => <Icon {...props} name="activity-outline" />;
+const GithubIcon = (props: any) => <Icon {...props} name="github" pack="feather" />;
+const ExternalLinkIcon = (props: any) => <Icon {...props} name="external-link" pack="feather" />;
+const ProjectIcon = (props: any) => <Icon {...props} name="activity" pack="feather" />;
+const AngularIcon = (props: any) => <Icon {...props} name="angular" pack="fontawesome" />;
+const ReactIcon = (props: any) => <Icon {...props} name="react" pack="fontawesome" />;
+const ScullyIcon = (props: any) => <Icon {...props} name="scully" pack="assets" />;
+const JSIcon = (props: any) => <Icon {...props} name="js-square" pack="fontawesome" />;
+const TSIcon = (props: any) => <Icon {...props} name="language-typescript" pack="fontawesome" />;
+const TechDefaultIcon = (props: any) => <Icon {...props} name="package" pack="feather" />;
 export const Portfolio = () => {
   const theme = useTheme();
   const wWidth = Dimensions.get('window').width;
@@ -57,7 +73,7 @@ export const Portfolio = () => {
                     <Layout
                       style={{
                         flexDirection: 'row',
-                        backgroundColor: theme['background-basic-color-4'],
+                        backgroundColor: 'transparent',
                       }}>
                       <Button
                         style={styles.projectlink}
@@ -98,9 +114,33 @@ export const Portfolio = () => {
                     flexWrap: 'wrap',
                     backgroundColor: theme['background-basic-color-4'],
                   }}>
-                  <Text style={styles.tech}>Angular</Text>
-                  <Text style={styles.tech}>Typescript</Text>
-                  <Text style={styles.tech}>Scully</Text>
+                  <Button
+                    style={styles.projectlink}
+                    onPress={() => {
+                      Linking.openURL('https://angular.io');
+                    }}
+                    appearance="ghost"
+                    accessoryLeft={AngularIcon}>
+                    Angular
+                  </Button>
+                  <Button
+                    style={styles.projectlink}
+                    onPress={() => {
+                      Linking.openURL('https://www.typescriptlang.org');
+                    }}
+                    appearance="ghost"
+                    accessoryLeft={TechDefaultIcon}>
+                    Typescript
+                  </Button>
+                  <Button
+                    style={styles.projectlink}
+                    onPress={() => {
+                      Linking.openURL('https://scully.io');
+                    }}
+                    appearance="ghost"
+                    accessoryLeft={TechDefaultIcon}>
+                    Scully
+                  </Button>
                 </View>
               );
             }}>
@@ -136,7 +176,7 @@ export const Portfolio = () => {
                     <Layout
                       style={{
                         flexDirection: 'row',
-                        backgroundColor: theme['background-basic-color-4'],
+                        backgroundColor: 'transparent',
                       }}>
                       <Button
                         style={styles.projectlink}
@@ -185,20 +225,44 @@ export const Portfolio = () => {
                     flexWrap: 'wrap',
                     backgroundColor: theme['background-basic-color-4'],
                   }}>
-                  <Text style={styles.tech}>React</Text>
-                  <Text style={styles.tech}>Typescript</Text>
-                  <Text style={styles.tech}>Styled Components</Text>
+                  <Button
+                    style={styles.projectlink}
+                    onPress={() => {
+                      Linking.openURL('https://reactjs.org');
+                    }}
+                    appearance="ghost"
+                    accessoryLeft={ReactIcon}>
+                    React
+                  </Button>
+                  <Button
+                    style={styles.projectlink}
+                    onPress={() => {
+                      Linking.openURL('https://www.typescriptlang.org');
+                    }}
+                    appearance="ghost"
+                    accessoryLeft={TechDefaultIcon}>
+                    Typescript
+                  </Button>
+                  <Button
+                    style={styles.projectlink}
+                    onPress={() => {
+                      Linking.openURL('https://styled-components.com');
+                    }}
+                    appearance="ghost"
+                    accessoryLeft={TechDefaultIcon}>
+                    Styled Components
+                  </Button>
                 </View>
               );
             }}>
             <Text style={styles.text}>
-              My first personal website. Written in Angular and Scully. My first foray into
-              Jamstack. Lots to learn and lots of fun.
+              My personal website, rewritten in ReactJS. I'm moving away from Jamstack for this
+              project as adding embedded widgets from social media feeds doesn't work with Scully.
             </Text>
           </Card>
         </SimpleAnimation>
         <SimpleAnimation
-          style={{ padding: 10 }}
+          style={{ padding: 10, marginBottom: 100 }}
           delay={600}
           duration={2000}
           direction="right"
@@ -223,7 +287,7 @@ export const Portfolio = () => {
                     <Layout
                       style={{
                         flexDirection: 'row',
-                        backgroundColor: theme['background-basic-color-4'],
+                        backgroundColor: 'transparent',
                       }}>
                       <Button
                         style={styles.projectlink}
@@ -272,15 +336,49 @@ export const Portfolio = () => {
                     flexWrap: 'wrap',
                     backgroundColor: theme['background-basic-color-4'],
                   }}>
-                  <Text style={styles.tech}>React Native</Text>
-                  <Text style={styles.tech}>Typescript</Text>
-                  <Text style={styles.tech}>UI Kitten</Text>
+                  <Button
+                    style={styles.projectlink}
+                    onPress={() => {
+                      Linking.openURL('https://expo.dev');
+                    }}
+                    appearance="ghost"
+                    accessoryLeft={TechDefaultIcon}>
+                    Expo
+                  </Button>
+                  <Button
+                    style={styles.projectlink}
+                    onPress={() => {
+                      Linking.openURL('https://reactnative.dev');
+                    }}
+                    appearance="ghost"
+                    accessoryLeft={ReactIcon}>
+                    React Native
+                  </Button>
+                  <Button
+                    style={styles.projectlink}
+                    onPress={() => {
+                      Linking.openURL('https://www.typescriptlang.org');
+                    }}
+                    appearance="ghost"
+                    accessoryLeft={TechDefaultIcon}>
+                    Typescript
+                  </Button>
+                  <Button
+                    style={styles.projectlink}
+                    onPress={() => {
+                      Linking.openURL('https://akveo.github.io/react-native-ui-kitten/');
+                    }}
+                    appearance="ghost"
+                    accessoryLeft={TechDefaultIcon}>
+                    UI Kitten
+                  </Button>
                 </View>
               );
             }}>
             <Text style={styles.text}>
-              My first personal website. Written in Angular and Scully. My first foray into
-              Jamstack. Lots to learn and lots of fun.
+              The official app for tomhibbers.com. Bootstrapped with Expo, developed using React
+              Native and the UI Kitten framework. The app is currently published on the android app
+              store. Follow the link for the web version of the app.
             </Text>
           </Card>
         </SimpleAnimation>

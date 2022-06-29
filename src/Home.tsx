@@ -18,12 +18,8 @@ import { SimpleAnimation } from 'react-native-simple-animations';
 import { Link } from '@react-navigation/native';
 import { Animated } from 'react-native';
 import AnimatedLinearGradient, { presetColors } from './AnimatedGradient';
-const EmailIcon = (props?: Partial<ImageProps>): React.ReactElement<ImageProps> => (
-  <Icon {...props} name="email-outline" />
-);
-const CVIcon = (props?: Partial<ImageProps>): React.ReactElement<ImageProps> => (
-  <Icon {...props} name="attach-outline" />
-);
+const EmailIcon = (props: any) => <Icon {...props} name="mail" pack='feather'/>;
+const CVIcon = (props: any) => <Icon {...props} name="download" pack='feather'/>;
 export const Home = ({ navigation }) => {
   const theme = useTheme();
   const wWidth = Dimensions.get('window').width;
