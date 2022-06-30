@@ -18,8 +18,8 @@ import { SimpleAnimation } from 'react-native-simple-animations';
 import { Link } from '@react-navigation/native';
 import { Animated } from 'react-native';
 import AnimatedLinearGradient, { presetColors } from './AnimatedGradient';
-const EmailIcon = (props: any) => <Icon {...props} name="mail" pack='feather'/>;
-const CVIcon = (props: any) => <Icon {...props} name="download" pack='feather'/>;
+const EmailIcon = (props: any) => <Icon {...props} name="mail" pack="feather" />;
+const CVIcon = (props: any) => <Icon {...props} name="download" pack="feather" />;
 export const Home = ({ navigation }) => {
   const theme = useTheme();
   const wWidth = Dimensions.get('window').width;
@@ -39,147 +39,145 @@ export const Home = ({ navigation }) => {
           justifyContent: 'center',
           flexDirection: 'column',
           alignItems: 'center',
+          backgroundColor: 'transparent',
+          marginHorizontal: 10,
         }}>
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-          }}>
-          <SimpleAnimation
-            style={styles.heroLeftContainer}
-            dataSet={{ media: ids.heroLeftContainer }}
-            delay={500}
-            duration={2000}
-            direction="right"
-            distance={wWidth}
-            fade
-            movementType="slide"
-            useNativeDriver={true}
-            animateOnUpdate={true}>
-            <Layout style={{ backgroundColor: 'transparent' }}>
-              <Image
-                source={require('../assets/profilepic.jpg')}
-                style={{
-                  marginVertical: 40,
-                  borderColor: theme['color-primary-500'],
-                  borderWidth: 3,
-                  width: 250,
-                  height: 250,
-                  resizeMode: 'cover',
-                  borderRadius: 400 / 2,
-                }}
-              />
-            </Layout>
-          </SimpleAnimation>
-          <SimpleAnimation
-            style={styles.heroRightContainer}
-            dataSet={{ media: ids.heroRightContainer }}
-            delay={500}
-            duration={2000}
-            direction="left"
-            distance={wWidth}
-            fade
-            movementType="slide"
-            useNativeDriver={true}
-            animateOnUpdate={true}>
-            <Layout style={{ backgroundColor: 'transparent' }}>
-              <Text
-                style={[
-                  styles.text,
-                  {
-                    color: theme['color-success-500'],
-                    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-                    textShadowOffset: { width: -1, height: 1 },
-                    textShadowRadius: 3,
-                  },
-                ]}
-                category="h1">
-                Tom Hibbers
-              </Text>
-              <Text
-                style={[
-                  styles.text,
-                  {
-                    color: theme['color-success-400'],
-                    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-                    textShadowOffset: { width: -1, height: 1 },
-                    textShadowRadius: 3,
-                  },
-                ]}
-                category="h6">
-                Full stack developer
-              </Text>
-              <Text
-                style={[
-                  styles.text,
-                  {
-                    marginVertical: 20,
-                    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-                    textShadowOffset: { width: -1, height: 1 },
-                    textShadowRadius: 3,
-                  },
-                ]}>
-                I'm a software developer with a passion for full stack development. I am currently
-                based in South-Africa.
-              </Text>
-              <Layout
-                style={{
-                  backgroundColor: 'transparent',
-                  marginVertical: 40,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  flexDirection: 'row',
-                  flexWrap: 'wrap',
-                }}>
-                <Button
-                  style={styles.button}
-                  accessoryLeft={EmailIcon}
-                  onPress={() => navigation.navigate('Contact')}>
-                  CONTACT
-                </Button>
-                <Button
-                  style={styles.button}
-                  accessoryLeft={CVIcon}
-                  onPress={() => {
-                    Linking.openURL(
-                      'https://drive.google.com/uc?export=download&id=1jDUfZGdLRGIBQV29F9jzof2oeG3NUkiM'
-                    );
-                  }}>
-                  <Text style={{ width: 200 }}>CV</Text>
-                </Button>
-              </Layout>
-            </Layout>
-          </SimpleAnimation>
-        </View>
         <SimpleAnimation
-          style={{ marginVertical: 50 }}
-          delay={500}
+          delay={200}
           duration={2000}
-          direction="up"
+          direction="right"
           distance={wWidth}
           fade
           movementType="slide"
           useNativeDriver={true}
           animateOnUpdate={true}>
-          <TouchableOpacity onPress={() => {
-              Linking.openURL('https://play.google.com/store/apps/details?id=com.tomhibbers.app');
+          <Card
+            style={[
+              styles.card,
+              {
+                marginVertical: 10,
+                backgroundColor: theme['background-basic-color-2'],
+              },
+            ]}
+            footer={() => {
+              const theme = useTheme();
+              return (
+                <View
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    backgroundColor: theme['background-basic-color-4'],
+                  }}>
+                  <Button
+                    style={styles.projectlink}
+                    onPress={() => {
+                      Linking.openURL('https://angular.io');
+                    }}
+                    appearance="ghost"
+                    accessoryLeft={EmailIcon}>
+                    Contact
+                  </Button>
+                  <Button
+                    style={styles.projectlink}
+                    onPress={() => {
+                      Linking.openURL('https://www.typescriptlang.org');
+                    }}
+                    appearance="ghost"
+                    accessoryLeft={CVIcon}>
+                    CV
+                  </Button>
+                </View>
+              );
             }}>
-            <Image
+            <View
               style={{
-                width: 200,
-                height: 60,
-              }}
-              source={require('../assets/google-play-badge.png')}
-            />
-          </TouchableOpacity>
+                // flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+              }}>
+              <View
+                style={{
+                  flex: 0.3,
+                  flexBasis: 250,
+                  flexGrow: 2,
+                  backgroundColor: 'transparent',
+                }}>
+                <Image
+                  source={require('../assets/profilepic2.png')}
+                  style={{
+                    width: '100%',
+                    height: 250,
+                    resizeMode: 'cover',
+                  }}
+                />
+              </View>
+              <View
+                style={{
+                  flex: 0.7,
+                  flexBasis: 300,
+                  alignItems: 'center',
+                  paddingHorizontal: 10,
+                  paddingVertical: 10,
+                }}>
+                <Text
+                  style={[
+                    styles.text,
+                    {
+                      color: theme['color-success-500'],
+                    },
+                  ]}
+                  category="h1">
+                  Tom Hibbers
+                </Text>
+                <Text
+                  style={[
+                    styles.text,
+                    {
+                      color: theme['color-success-400'],
+                    },
+                  ]}
+                  category="h6">
+                  Full stack developer
+                </Text>
+                <Text
+                  style={[
+                    styles.text,
+                    {
+                      marginVertical: 20,
+                    },
+                  ]}>
+                  I'm a software developer with a passion for full stack development. I am currently
+                  based in South-Africa.
+                </Text>
+
+                <TouchableOpacity
+                  onPress={() => {
+                    Linking.openURL(
+                      'https://play.google.com/store/apps/details?id=com.tomhibbers.app'
+                    );
+                  }}>
+                  <Image
+                    style={{ height: 40, width: 133 }}
+                    source={require('../assets/google-play-badge.png')}
+                  />
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Card>
         </SimpleAnimation>
       </ScrollView>
     </SafeAreaView>
   );
 };
 const { ids, styles } = StyleSheet.create({
+  card: {
+    maxWidth: 800,
+    opacity: 0.7,
+  },
   text: {
     textAlign: 'center',
   },
@@ -204,5 +202,9 @@ const { ids, styles } = StyleSheet.create({
       width: '90%',
       //maxWidth: 'initial',
     },
+  },
+  projectlink: {
+    padding: 0,
+    margin: 0,
   },
 });

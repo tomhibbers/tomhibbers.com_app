@@ -13,8 +13,8 @@ import { ThemeContext } from '../theme-context';
 import StyleSheet from 'react-native-media-query';
 import { SimpleAnimation } from 'react-native-simple-animations';
 import AnimatedLinearGradient, { presetColors } from './AnimatedGradient';
-const EmailIcon = (props: any) => <Icon {...props} name="mail" pack='feather'/>;
-const PhoneIcon = (props: any) => <Icon {...props} name="phone" pack='feather'/>;
+const EmailIcon = (props: any) => <Icon {...props} name="mail" pack="feather" />;
+const PhoneIcon = (props: any) => <Icon {...props} name="phone" pack="feather" />;
 const Header = () => {
   const theme = useTheme();
   return (
@@ -56,67 +56,45 @@ export const Contact = () => {
           animateOnUpdate={true}>
           <Card
             style={[styles.card, { backgroundColor: theme['background-basic-color-2'] }]}
-            header={Header}>
+            header={Header}
+            footer={() => {
+              const theme = useTheme();
+              return (
+                <View
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    backgroundColor: theme['background-basic-color-4'],
+                  }}>
+                  <Button
+                    style={styles.projectlink}
+                    accessoryLeft={EmailIcon}
+                    appearance="ghost"
+                    onPress={() => {
+                      Linking.openURL('mailto:tomhibbers@gmail.com');
+                    }}>
+                    CONTACT
+                  </Button>
+                  <Button
+                    style={styles.button}
+                    accessoryLeft={PhoneIcon}
+                    appearance="ghost"
+                    onPress={() => {
+                      Linking.openURL('tel:+270822987183');
+                    }}>
+                    PHONE
+                  </Button>
+                </View>
+              );
+            }}>
             <Text style={styles.text}>
               If you've seen my potential or want to talk to me, don't hesitate to send me a
               message.
             </Text>
           </Card>
         </SimpleAnimation>
-        <Layout
-          style={{
-            backgroundColor: 'transparent',
-            marginVertical: 40,
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            maxWidth: 800,
-            width: '100%',
-          }}>
-          <SimpleAnimation
-            style={{
-              width: '40%',
-            }}
-            delay={500}
-            duration={2000}
-            direction="left"
-            distance={wWidth}
-            fade
-            movementType="slide"
-            useNativeDriver={true}
-            animateOnUpdate={true}>
-            <Button
-              style={styles.button}
-              accessoryLeft={EmailIcon}
-              onPress={() => {
-                Linking.openURL('mailto:tomhibbers@gmail.com');
-              }}>
-              CONTACT
-            </Button>
-          </SimpleAnimation>
-          <SimpleAnimation
-            style={{
-              width: '40%',
-            }}
-            delay={700}
-            duration={2000}
-            direction="left"
-            distance={wWidth}
-            fade
-            movementType="slide"
-            useNativeDriver={true}
-            animateOnUpdate={true}>
-            <Button
-              style={styles.button}
-              accessoryLeft={PhoneIcon}
-              onPress={() => {
-                Linking.openURL('tel:+270822987183');
-              }}>
-              PHONE
-            </Button>
-          </SimpleAnimation>
-        </Layout>
       </ScrollView>
     </SafeAreaView>
   );
@@ -130,9 +108,13 @@ const { ids, styles } = StyleSheet.create({
   },
   text: {
     textAlign: 'center',
-    marginVertical: 5,
+    padding: 16,
   },
   button: {
     marginHorizontal: '2.5%',
+  },
+  projectlink: {
+    padding: 0,
+    margin: 0,
   },
 });

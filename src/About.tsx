@@ -158,7 +158,7 @@ const { ids, styles } = StyleSheet.create({
   },
   text: {
     textAlign: 'center',
-    marginVertical: 5,
+    padding:16,
   },
   button: {
     marginLeft: 10,

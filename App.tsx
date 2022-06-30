@@ -11,6 +11,7 @@ import { Platform, StatusBar } from 'react-native';
 import { FontAwesomeIconsPack } from './src/FontAwesomeIconsPack';
 import { FeatherIconsPack } from './src/FeatherIconsPack';
 import { AssetIconsPack } from './src/AssetIconsPack';
+import { default as mapping } from './mapping.json';
 
 const themeC = require('./app-theme.json');
 const App = () => {
@@ -49,7 +50,10 @@ const App = () => {
     <>
       <IconRegistry icons={[FeatherIconsPack, FontAwesomeIconsPack, AssetIconsPack]} />
       <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>
-        <ApplicationProvider {...eva} theme={{ ...eva[theme as 'light' | 'dark'], ...themeC }}>
+        <ApplicationProvider
+          {...eva}
+          theme={{ ...eva[theme as 'light' | 'dark'], ...themeC }}
+          customMapping={mapping}>
           <SafeAreaProvider>
             <AppNavigator />
           </SafeAreaProvider>

@@ -211,11 +211,12 @@ const { ids, styles } = StyleSheet.create({
   },
   text: {
     textAlign: 'left',
-    marginVertical: 5,
+    padding:16,
   },
   textHeader: {
     textAlign: 'left',
     marginTop: 25,
+    padding:16,
   },
   button: {
     paddingTop: 0,
